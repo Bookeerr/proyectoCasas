@@ -117,7 +117,7 @@ private fun RegisterScreen(
 
             OutlinedTextField(
                 value = email,
-                onValueChange = onEmailChange,
+                onValueChange = onEmailChange, // Corregido
                 label = { Text("Email") },
                 singleLine = true,
                 isError = emailError != null,
@@ -138,7 +138,7 @@ private fun RegisterScreen(
 
             OutlinedTextField(
                 value = phone,
-                onValueChange = onPhoneChange,
+                onValueChange = onPhoneChange, // Corregido
                 label = { Text("Teléfono") },
                 singleLine = true,
                 isError = phoneError != null,
