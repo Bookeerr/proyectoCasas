@@ -8,7 +8,7 @@ fun validateEmail(email: String): String? {
     }
     return null
 }
-
+//funcion
 fun validateNameLettersOnly(name: String): String? {
     if (name.any { !it.isLetter() && !it.isWhitespace() }) {
         return "El nombre solo puede contener letras y espacios"
