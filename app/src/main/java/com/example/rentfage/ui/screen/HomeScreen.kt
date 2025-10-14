@@ -1,4 +1,4 @@
-package com.example.rentfage.screen
+package com.example.rentfage.ui.screen // <-- PAQUETE CORREGIDO
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
-// Ahora sí, una réplica exacta del código del profesor.
 @Composable
 fun HomeScreen(
     onGoLogin: () -> Unit,
@@ -32,14 +31,14 @@ fun HomeScreen(
 ) {
     val bg = MaterialTheme.colorScheme.surfaceVariant // Fondo agradable para Home
 
-    Box( // Contenedor a pantalla completa
+    Box(
         modifier = Modifier
             .fillMaxSize() // Ocupa todo
             .background(bg) // Aplica fondo
             .padding(16.dp), // Margen interior
         contentAlignment = Alignment.Center // Centra contenido
     ) {
-        Column( // Estructura vertical
+        Column(
             horizontalAlignment = Alignment.CenterHorizontally // Centra hijos
         ) {
             // Cabecera como Row
