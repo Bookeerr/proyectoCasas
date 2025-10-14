@@ -24,13 +24,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
+// Ahora sí, una réplica exacta del código del profesor.
 @Composable
 fun HomeScreen(
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
-
-){
-    val bg = MaterialTheme.colorScheme.surfaceVariant
+) {
+    val bg = MaterialTheme.colorScheme.surfaceVariant // Fondo agradable para Home
 
     Box( // Contenedor a pantalla completa
         modifier = Modifier
@@ -42,57 +42,54 @@ fun HomeScreen(
         Column( // Estructura vertical
             horizontalAlignment = Alignment.CenterHorizontally // Centra hijos
         ) {
-            // Cabecera como Row (ejemplo de estructura)
+            // Cabecera como Row
             Row(
                 verticalAlignment = Alignment.CenterVertically // Centra vertical
             ) {
                 Text( // Título Home
                     text = "Home",
-                    style = MaterialTheme.typography.headlineSmall, // Estilo título
-                    fontWeight = FontWeight.SemiBold // Seminegrita
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.SemiBold
                 )
                 Spacer(Modifier.width(8.dp)) // Separación horizontal
-                AssistChip( // Chip decorativo (Material 3)
-                    onClick = {}, // Sin acción (demo)
-                    label = { Text("Navega desde arriba o aquí") } // Texto chip
+                AssistChip( // Chip decorativo
+                    onClick = {},
+                    label = { Text("Navega desde arriba o aquí") }
                 )
             }
 
             Spacer(Modifier.height(20.dp)) // Separación
 
             // Tarjeta con un mini “hero”
-            ElevatedCard( // Card elevada para remarcar contenido
+            ElevatedCard(
                 modifier = Modifier.fillMaxWidth() // Ancho completo
             ) {
                 Column(
-                    modifier = Modifier.padding(16.dp), // Margen interno de la card
-                    horizontalAlignment = Alignment.CenterHorizontally // Centrado
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
                         "Demostración de navegación con TopBar + Drawer + Botones",
-                        style = MaterialTheme.typography.titleMedium, // Estilo medio
-                        textAlign = TextAlign.Center // Alineación centrada
+                        style = MaterialTheme.typography.titleMedium,
+                        textAlign = TextAlign.Center
                     )
-                    Spacer(Modifier.height(12.dp)) // Separacion
+                    Spacer(Modifier.height(12.dp)) // Separación
                     Text(
                         "Usa la barra superior (íconos y menú), el menú lateral o estos botones.",
-                        style = MaterialTheme.typography.bodyMedium // Texto base
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
 
             Spacer(Modifier.height(24.dp)) // Separación
 
-            // Botones de navegación principales
-            Row( // Dos botones en fila
+            // Botones de navegación
+            Row(
                 horizontalArrangement = Arrangement.spacedBy(12.dp) // Espacio entre botones
             ) {
-                Button(onClick = onGoLogin) { Text("Ir a Login") } // Navega a Login
-                OutlinedButton(onClick = onGoRegister) { Text("Ir a Registro") } // A Registro
+                Button(onClick = onGoLogin) { Text("Ir a Login") }
+                OutlinedButton(onClick = onGoRegister) { Text("Ir a Registro") }
             }
         }
     }
-
-
-
 }
