@@ -11,26 +11,23 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.rentfage.screen.HomeScreen
-import com.example.rentfage.screen.LoginScreenVm
-import com.example.rentfage.screen.RegisterScreenVm
+import com.example.rentfage.ui.screen.HomeScreen
+import com.example.rentfage.ui.screen.LoginScreenVm
+import com.example.rentfage.ui.screen.RegisterScreenVm
 import com.example.rentfage.ui.components.AppDrawer
 import com.example.rentfage.ui.components.AppTopBar
 import com.example.rentfage.ui.components.defaultDrawerItems
 import kotlinx.coroutines.launch
 
-// El NavGraph, ahora sí, como una copia estructural 1:1 del de tu profesor.
-// Nota: `Route` dará un error porque no está definido. Lo arreglaremos después.
 @Composable
-fun AppNavGraph(navController: NavHostController) { // Nombre y parámetro como en el ejemplo
+fun AppNavGraph(navController: NavHostController) {
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    // Helpers de navegación (reutilizamos en topbar/drawer/botones)
-    val goHome: () -> Unit    = { navController.navigate(Route.Home.path) }    // Ir a Home
-    val goLogin: () -> Unit   = { navController.navigate(Route.Login.path) }   // Ir a Login
-    val goRegister: () -> Unit = { navController.navigate(Route.Register.path) } // Ir a Registro
+    val goHome: () -> Unit    = { navController.navigate(Route.Home.path) }
+    val goLogin: () -> Unit   = { navController.navigate(Route.Login.path) }
+    val goRegister: () -> Unit = { navController.navigate(Route.Register.path) }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
