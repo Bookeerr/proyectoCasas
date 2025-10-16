@@ -2,13 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp") version "2.0.21-1.0.25"
 }
 
 android {
-    namespace = "com.example.rentfage"
-    compileSdk {
-        version = release(36)
-    }
+    namespace = "com.example.rentfage" // Tu namespace
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.rentfage"
@@ -42,6 +41,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -58,8 +58,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-
-    //librerias nuevas
+    //librerias nuevas, ahora sí con las versiones del profesor
     implementation("androidx.navigation:navigation-compose:2.9.5")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
@@ -67,4 +66,8 @@ dependencies {
     // Material icons (necesarios para Visibility / VisibilityOff)
     implementation("androidx.compose.material:material-icons-extended")
 
+    // Dependencias de Room, como en el ejemplo del profesor
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1") // Corregido a ktx, que es la librería correcta
+    ksp("androidx.room:room-compiler:2.6.1")
 }
