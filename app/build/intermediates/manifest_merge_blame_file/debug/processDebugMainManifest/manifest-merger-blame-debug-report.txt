@@ -39,107 +39,119 @@
 26-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:11:9-54
 27        android:supportsRtl="true"
 27-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:12:9-35
-28        android:theme="@style/Theme.Rentfage" >
-28-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:13:9-46
-29        <activity
-29-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:14:9-24:20
-30            android:name="com.example.rentfage.MainActivity"
-30-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:15:13-41
-31            android:exported="true"
-31-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:16:13-36
-32            android:label="@string/app_name"
-32-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:17:13-45
-33            android:theme="@style/Theme.Rentfage" >
-33-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:18:13-50
-34            <intent-filter>
-34-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:19:13-23:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:20:17-69
-35-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:20:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:22:17-77
-37-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:22:27-74
-38            </intent-filter>
-39        </activity>
-40        <activity
-40-->[androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\d3f1da9f317967dbb70776a179476555\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
-41            android:name="androidx.compose.ui.tooling.PreviewActivity"
-41-->[androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\d3f1da9f317967dbb70776a179476555\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
-42            android:exported="true" />
-42-->[androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\d3f1da9f317967dbb70776a179476555\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
-43        <activity
-43-->[androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\76dedbab19011f10d14cd28ed0cc6d52\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:23:9-25:39
-44            android:name="androidx.activity.ComponentActivity"
-44-->[androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\76dedbab19011f10d14cd28ed0cc6d52\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:24:13-63
-45            android:exported="true" />
-45-->[androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\76dedbab19011f10d14cd28ed0cc6d52\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:25:13-36
-46
-47        <provider
-47-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-48            android:name="androidx.startup.InitializationProvider"
-48-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-49            android:authorities="com.example.rentfage.androidx-startup"
-49-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-50            android:exported="false" >
-50-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-51            <meta-data
-51-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-52                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-52-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-53                android:value="androidx.startup" />
-53-->[androidx.emoji2:emoji2:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\9acb774eed2e951332bb0465128b5126\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-54            <meta-data
-54-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:29:13-31:52
-55                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-55-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:30:17-78
-56                android:value="androidx.startup" />
-56-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:31:17-49
-57            <meta-data
-57-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
-58                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-58-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
-59                android:value="androidx.startup" />
-59-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
-60        </provider>
-61
-62        <receiver
-62-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
-63            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-63-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
-64            android:directBootAware="false"
-64-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
-65            android:enabled="true"
-65-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
-66            android:exported="true"
-66-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
-67            android:permission="android.permission.DUMP" >
-67-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
-68            <intent-filter>
-68-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
-69                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-69-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-69-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
-70            </intent-filter>
-71            <intent-filter>
-71-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
-72                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-72-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-72-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
-73            </intent-filter>
-74            <intent-filter>
-74-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
-75                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
-76            </intent-filter>
-77            <intent-filter>
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
-78                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-78-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-78-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
-79            </intent-filter>
-80        </receiver>
-81    </application>
-82
-83</manifest>
+28        android:testOnly="true"
+29        android:theme="@style/Theme.Rentfage" >
+29-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:13:9-46
+30        <activity
+30-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:14:9-24:20
+31            android:name="com.example.rentfage.MainActivity"
+31-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:15:13-41
+32            android:exported="true"
+32-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:16:13-36
+33            android:label="@string/app_name"
+33-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:17:13-45
+34            android:theme="@style/Theme.Rentfage" >
+34-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:18:13-50
+35            <intent-filter>
+35-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:19:13-23:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:20:17-69
+36-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:20:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:22:17-77
+38-->C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:22:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->[androidx.compose.ui:ui-tooling-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f3274e4dceb0acc86064caee7574ac85\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
+42            android:name="androidx.compose.ui.tooling.PreviewActivity"
+42-->[androidx.compose.ui:ui-tooling-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f3274e4dceb0acc86064caee7574ac85\transformed\ui-tooling\AndroidManifest.xml:24:13-71
+43            android:exported="true" />
+43-->[androidx.compose.ui:ui-tooling-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f3274e4dceb0acc86064caee7574ac85\transformed\ui-tooling\AndroidManifest.xml:25:13-36
+44        <activity
+44-->[androidx.compose.ui:ui-test-manifest:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\a950a618afd56a1cf80bd1b3e510075a\transformed\ui-test-manifest-1.9.0\AndroidManifest.xml:23:9-26:79
+45            android:name="androidx.activity.ComponentActivity"
+45-->[androidx.compose.ui:ui-test-manifest:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\a950a618afd56a1cf80bd1b3e510075a\transformed\ui-test-manifest-1.9.0\AndroidManifest.xml:24:13-63
+46            android:exported="true"
+46-->[androidx.compose.ui:ui-test-manifest:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\a950a618afd56a1cf80bd1b3e510075a\transformed\ui-test-manifest-1.9.0\AndroidManifest.xml:25:13-36
+47            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+47-->[androidx.compose.ui:ui-test-manifest:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\a950a618afd56a1cf80bd1b3e510075a\transformed\ui-test-manifest-1.9.0\AndroidManifest.xml:26:13-76
+48
+49        <provider
+49-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+50            android:name="androidx.startup.InitializationProvider"
+50-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:25:13-67
+51            android:authorities="com.example.rentfage.androidx-startup"
+51-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:26:13-68
+52            android:exported="false" >
+52-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:27:13-37
+53            <meta-data
+53-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+54                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+54-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+55                android:value="androidx.startup" />
+55-->[androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+56            <meta-data
+56-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:29:13-31:52
+57                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+57-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:30:17-78
+58                android:value="androidx.startup" />
+58-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:31:17-49
+59            <meta-data
+59-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+60                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+60-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+61                android:value="androidx.startup" />
+61-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+62        </provider>
+63
+64        <service
+64-->[androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\0e4ada9c890ea6c69f2c3af41e3923eb\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+65            android:name="androidx.room.MultiInstanceInvalidationService"
+65-->[androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\0e4ada9c890ea6c69f2c3af41e3923eb\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+66            android:directBootAware="true"
+66-->[androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\0e4ada9c890ea6c69f2c3af41e3923eb\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+67            android:exported="false" />
+67-->[androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\0e4ada9c890ea6c69f2c3af41e3923eb\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+68
+69        <receiver
+69-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+70            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+70-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+71            android:directBootAware="false"
+71-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+72            android:enabled="true"
+72-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+73            android:exported="true"
+73-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+74            android:permission="android.permission.DUMP" >
+74-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+75            <intent-filter>
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+76                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+77            </intent-filter>
+78            <intent-filter>
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+79                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+80            </intent-filter>
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+82                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+85                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\f9ededffc1757bf1516d836013e57b28\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+86            </intent-filter>
+87        </receiver>
+88    </application>
+89
+90</manifest>
