@@ -6,7 +6,8 @@ import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.CenterAlignedTopAppBar
+// Se importa el TopAppBar estándar en lugar del centrado.
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,6 +17,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,24 +30,28 @@ fun AppTopBar(
 ) {
     var showMenu by remember { mutableStateOf(false) } // Estado del menú overflow
 
-    CenterAlignedTopAppBar(
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary // Color de la barra
+    // Usamos TopAppBar para alinear el título a la izquierda.
+    TopAppBar(
+        colors = TopAppBarDefaults.topAppBarColors( // Se usa el constructor de colores para TopAppBar
+            containerColor = MaterialTheme.colorScheme.primary,
+            titleContentColor = Color.White,
+            navigationIconContentColor = Color.White,
+            actionIconContentColor = Color.White
         ),
-        title = { // título
+        title = { 
             Text(
-                text = "Venta de Casas", // Título de tu app
+                text = "Rentfage",
                 style = MaterialTheme.typography.titleLarge,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
         },
-        navigationIcon = { // Ícono a la izquierda (hamburguesa)
+        navigationIcon = { 
             IconButton(onClick = onOpenDrawer) {
                 Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menú")
             }
         },
-        actions = { // Acciones a la derecha (íconos + overflow)
+        actions = { 
             IconButton(onClick = onHome) {
                 Icon(Icons.Filled.Home, contentDescription = "Home")
             }
@@ -55,16 +61,16 @@ fun AppTopBar(
             IconButton(onClick = onRegister) {
                 Icon(Icons.Filled.Person, contentDescription = "Registro")
             }
-            IconButton(onClick = { showMenu = true }) { // Abre menú overflow
+            IconButton(onClick = { showMenu = true }) { 
                 Icon(Icons.Filled.MoreVert, contentDescription = "Más")
             }
             DropdownMenu(
-                expanded = showMenu, // Si está abierto
-                onDismissRequest = { showMenu = false } // Cierra al tocar fuera
+                expanded = showMenu,
+                onDismissRequest = { showMenu = false } 
             ) {
                 DropdownMenuItem(
                     text = { Text("Home") },
-                    onClick = { showMenu = false; onHome() } // Navega y cierra
+                    onClick = { showMenu = false; onHome() } 
                 )
                 DropdownMenuItem(
                     text = { Text("Login") },

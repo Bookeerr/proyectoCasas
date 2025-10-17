@@ -1,5 +1,9 @@
 package com.example.rentfage.ui.screen
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -10,12 +14,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.rentfage.ui.viewmodel.AuthViewModel // <-- Import corregido a la nueva ubicación
+import com.example.rentfage.ui.viewmodel.AuthViewModel
 
 @Composable
 fun LoginScreenVm(
@@ -62,6 +68,11 @@ private fun LoginScreen(
     val bg = MaterialTheme.colorScheme.secondaryContainer
     var showPass by remember { mutableStateOf(false) }
 
+    val buttonAlpha by animateFloatAsState(
+        targetValue = if (isSubmitting) 0.6f else 1f,
+        label = "alphaLoginButton"
+    )
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -80,7 +91,7 @@ private fun LoginScreen(
             Spacer(Modifier.height(12.dp))
 
             Text(
-                text = "Pantalla de Login (demo). Usa la barra superior, el menú lateral o los botones.",
+                text = "Bienvenido a Rentfage la mejor app de ventas de casas", // <-- TEXTO CAMBIADO
                 textAlign = TextAlign.Center
             )
             Spacer(Modifier.height(20.dp))
@@ -96,8 +107,13 @@ private fun LoginScreen(
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
-            if (emailError != null) {
-                Text(emailError, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall)
+            // Se anima la aparición del error de email
+            AnimatedVisibility(
+                visible = emailError != null,
+                enter = slideInVertically { it },
+                exit = fadeOut()
+            ) {
+                Text(emailError ?: "", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall)
             }
 
             Spacer(Modifier.height(8.dp))
@@ -119,8 +135,13 @@ private fun LoginScreen(
                 isError = passError != null,
                 modifier = Modifier.fillMaxWidth()
             )
-            if (passError != null) {
-                Text(passError, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall)
+            // Se anima la aparición del error de contraseña
+            AnimatedVisibility(
+                visible = passError != null,
+                enter = slideInVertically { it },
+                exit = fadeOut()
+            ) {
+                Text(passError ?: "", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall)
             }
 
             Spacer(Modifier.height(16.dp))
@@ -128,7 +149,7 @@ private fun LoginScreen(
             Button(
                 onClick = onSubmit,
                 enabled = canSubmit && !isSubmitting,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().alpha(buttonAlpha)
             ) {
                 if (isSubmitting) {
                     CircularProgressIndicator(strokeWidth = 2.dp, modifier = Modifier.size(18.dp))
@@ -151,4 +172,22 @@ private fun LoginScreen(
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun LoginScreenPreview() {
+    LoginScreen(
+        email = "",
+        pass = "",
+        emailError = null,
+        passError = null,
+        canSubmit = false,
+        isSubmitting = false,
+        errorMsg = null,
+        onEmailChange = {},
+        onPassChange = {},
+        onSubmit = {},
+        onGoRegister = {}
+    )
 }

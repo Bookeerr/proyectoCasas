@@ -63,7 +63,8 @@ fun AppNavGraph(navController: NavHostController) {
         ) { innerPadding ->
             NavHost(
                 navController = navController,
-                startDestination = Route.Home.path,
+                // Se cambia la pantalla de inicio a Login.
+                startDestination = Route.Login.path,
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(Route.Home.path) { 
