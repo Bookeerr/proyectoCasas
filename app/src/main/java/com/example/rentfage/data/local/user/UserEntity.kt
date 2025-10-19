@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
 data class UserEntity (
-    // El ID ahora es Long, como en el ejemplo del profesor.
+    // El ID ahora es Long.
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
     val name: String,                                      // Nombre

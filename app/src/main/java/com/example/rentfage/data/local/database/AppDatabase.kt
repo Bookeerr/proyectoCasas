@@ -23,7 +23,7 @@ abstract class AppDatabase: RoomDatabase(){
     companion object{
         @Volatile
         private var INSTANCE: AppDatabase? = null
-        private const val DB_NAME = "ui_navegacion.db" // <--- Nombre exacto del profesor
+        private const val DB_NAME = "rentfage.db" // <--- Nombre exacto del profesor
 
         //obtener la instancia de la BD
         fun getInstance(context: Context): AppDatabase{
