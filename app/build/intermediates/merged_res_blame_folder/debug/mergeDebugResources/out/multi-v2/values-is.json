@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.rentfage.app-mergeDebugResources-43:/values-is/values-is.xml",
+            "outputFile": "com.example.rentfage.app-mergeDebugResources-45:/values-is/values-is.xml",
             "map": [
                 {
                     "source": "C:\\Users\\quint\\.gradle\\caches\\8.13\\transforms\\0bcb1f5a294d6a45678a49d139f6bc1b\\transformed\\material3-release\\res\\values-is\\values-is.xml",

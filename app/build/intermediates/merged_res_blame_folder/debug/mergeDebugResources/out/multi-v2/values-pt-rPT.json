@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.rentfage.app-mergeDebugResources-43:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.rentfage.app-mergeDebugResources-45:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\quint\\.gradle\\caches\\8.13\\transforms\\c3bd561793db63fb808432d22ce71afa\\transformed\\foundation-release\\res\\values-pt-rPT\\values-pt-rPT.xml",

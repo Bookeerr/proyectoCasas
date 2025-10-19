@@ -1,0 +1,16 @@
+# Archivos generados por el sistema de compilación (¡Basura!)
+/build/
+
+# Archivos generados por Android Studio y el IDE
+.idea/
+*.iml
+.gradle/
+local.properties
+
+# APKs y bundles de la aplicación (se generan cada vez)
+*.apk
+*.aab
+
+# Archivos de Keystore (¡Estos son secretos! Nunca se deben compartir)
+*.jks
+*.keystore

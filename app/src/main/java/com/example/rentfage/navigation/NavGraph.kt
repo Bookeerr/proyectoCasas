@@ -9,9 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.rentfage.ui.screen.HomeScreen
+import com.example.rentfage.ui.screen.DetalleCasaScreen
 import com.example.rentfage.ui.screen.LoginScreenVm
 import com.example.rentfage.ui.screen.RegisterScreenVm
 import com.example.rentfage.ui.components.AppDrawer
@@ -28,6 +31,9 @@ fun AppNavGraph(navController: NavHostController) {
     val goHome: () -> Unit    = { navController.navigate(Route.Home.path) }
     val goLogin: () -> Unit   = { navController.navigate(Route.Login.path) }
     val goRegister: () -> Unit = { navController.navigate(Route.Register.path) }
+    val onHouseClick: (Int) -> Unit = { casaId ->
+        navController.navigate("detalle_casa/$casaId")
+    }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -63,14 +69,14 @@ fun AppNavGraph(navController: NavHostController) {
         ) { innerPadding ->
             NavHost(
                 navController = navController,
-                // Se cambia la pantalla de inicio a Login.
                 startDestination = Route.Login.path,
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(Route.Home.path) { 
                     HomeScreen(
                         onGoLogin = goLogin,
-                        onGoRegister = goRegister
+                        onGoRegister = goRegister,
+                        onHouseClick = onHouseClick
                     )
                 }
                 composable(Route.Login.path) { 
@@ -84,6 +90,16 @@ fun AppNavGraph(navController: NavHostController) {
                         onRegisteredNavigateLogin = goLogin,
                         onGoLogin = goLogin
                     )
+                }
+
+
+                composable(
+                    route = Route.DetalleCasa.path,
+                    arguments = listOf(navArgument("casaId") { type = NavType.IntType })
+                ) { backStackEntry ->
+
+                    val casaId = backStackEntry.arguments?.getInt("casaId") ?: 0
+                    DetalleCasaScreen(casaId = casaId)
                 }
             }
         }

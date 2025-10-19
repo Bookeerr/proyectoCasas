@@ -68,6 +68,9 @@ dependencies {
 
     // Dependencias de Room, como en el ejemplo del profesor
     implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1") // Corregido a ktx, que es la librería correcta
+    implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
+
+    // Nueva dependencia para cargar imágenes desde internet
+    implementation("io.coil-kt:coil-compose:2.6.0")
 }

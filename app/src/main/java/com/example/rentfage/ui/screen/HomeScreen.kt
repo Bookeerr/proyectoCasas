@@ -1,6 +1,7 @@
 package com.example.rentfage.ui.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable // Import para hacer que los elementos sean clicables
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,7 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-// 1. "Molde" temporal para una casa
 private data class House(
     val id: Int,
     val price: String,
@@ -31,7 +31,6 @@ private data class House(
     val details: String
 )
 
-// 2. Lista de casas de ejemplo (solo en Santiago) con precios en UF
 private val sampleHouses = listOf(
     House(1, "UF 28.500", "Av. Vitacura, Vitacura, Santiago", "4 hab | 5 baños | 450 m²"),
     House(2, "UF 35.000", "Camino La Dehesa, Lo Barnechea, Santiago", "5 hab | 6 baños | 600 m² | Piscina"),
@@ -41,6 +40,8 @@ private val sampleHouses = listOf(
 
 @Composable
 fun HomeScreen(
+    // Se añade el nuevo parámetro para aceptar la acción de clic
+    onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
 ) {
@@ -57,21 +58,25 @@ fun HomeScreen(
             )
         }
         items(sampleHouses) { house ->
-            HouseCard(house = house)
+            // Se pasa la acción de clic a cada tarjeta
+            HouseCard(house = house, onClick = { onHouseClick(house.id) })
         }
     }
 }
 
-// 3. Tarjeta para mostrar una casa individual
 @Composable
-private fun HouseCard(house: House) {
+private fun HouseCard(
+    house: House,
+    // La tarjeta ahora acepta una acción de clic
+    onClick: () -> Unit
+) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        // Se añade el modificador clickable para que toda la tarjeta sea un botón
+        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
-            // Marcador de posición para la imagen de la casa
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
