@@ -23,11 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-// Se importan los datos desde el nuevo archivo central
 import com.example.rentfage.data.local.Casa
 import com.example.rentfage.data.local.casasDeEjemplo
-
-// La data class y la lista de ejemplo han sido eliminadas de este archivo
 
 @Composable
 fun HomeScreen(
@@ -47,9 +44,7 @@ fun HomeScreen(
                 modifier = Modifier.padding(bottom = 8.dp)
             )
         }
-        // Se usa la lista `casasDeEjemplo` del archivo SampleData.kt
         items(casasDeEjemplo) { casa ->
-            // Se pasa la `casa` y la acción de clic a cada tarjeta
             HouseCard(casa = casa, onClick = { onHouseClick(casa.id) })
         }
     }
@@ -57,7 +52,6 @@ fun HomeScreen(
 
 @Composable
 private fun HouseCard(
-    // La tarjeta ahora recibe un objeto `Casa`
     casa: Casa,
     onClick: () -> Unit
 ) {
@@ -67,13 +61,15 @@ private fun HouseCard(
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
+            // un Box gris para mantener el estado de "boceto"
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
-                    .background(Color.LightGray)
+                    .background(Color.LightGray),
+                contentAlignment = Alignment.Center
             ) {
-                Text("Imagen de la casa", modifier = Modifier.align(Alignment.Center), color = Color.Gray)
+                Text("Imagen de la casa", color = Color.Gray)
             }
 
             Column(

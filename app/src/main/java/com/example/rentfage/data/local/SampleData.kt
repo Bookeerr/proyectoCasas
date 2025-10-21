@@ -1,6 +1,6 @@
 package com.example.rentfage.data.local
 
-// "Molde" para una casa, ahora con nombre en español.
+
 data class Casa(
     val id: Int,
     val price: String,
@@ -8,7 +8,7 @@ data class Casa(
     val details: String
 )
 
-// Lista de casas de ejemplo, ahora con nombre en español y accesible desde toda la app.
+// la lista de casas.
 val casasDeEjemplo = listOf(
     Casa(1, "UF 28.500", "Av. Vitacura, Vitacura, Santiago", "4 hab | 5 baños | 450 m²"),
     Casa(2, "UF 35.000", "Camino La Dehesa, Lo Barnechea, Santiago", "5 hab | 6 baños | 600 m² | Piscina"),
