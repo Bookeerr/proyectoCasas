@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color // Se importa Color para usar Color.White
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -76,8 +77,8 @@ private fun RegisterScreen(
     onSubmit: () -> Unit,
     onGoLogin: () -> Unit
 ) {
-    // Se cambia el color de fondo para que sea consistente con las otras pantallas.
-    val bg = MaterialTheme.colorScheme.surfaceVariant 
+    // Se cambia el color de fondo a blanco.
+    val bg = Color.White 
     var showPass by remember { mutableStateOf(false) }
     var showConfirm by remember { mutableStateOf(false) }
 

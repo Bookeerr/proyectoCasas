@@ -15,6 +15,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color // Se importa Color para usar Color.White
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -65,7 +66,8 @@ private fun LoginScreen(
     onSubmit: () -> Unit,
     onGoRegister: () -> Unit
 ) {
-    val bg = MaterialTheme.colorScheme.secondaryContainer
+    // Se cambia el color de fondo a blanco.
+    val bg = Color.White
     var showPass by remember { mutableStateOf(false) }
 
     val buttonAlpha by animateFloatAsState(
@@ -91,7 +93,7 @@ private fun LoginScreen(
             Spacer(Modifier.height(12.dp))
 
             Text(
-                text = "Bienvenido a Rentfage la mejor app de ventas de casas", // <-- TEXTO CAMBIADO
+                text = "Bienvenido a Rentfage la mejor app de ventas de casas",
                 textAlign = TextAlign.Center
             )
             Spacer(Modifier.height(20.dp))
@@ -107,7 +109,6 @@ private fun LoginScreen(
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
-            // Se anima la aparición del error de email
             AnimatedVisibility(
                 visible = emailError != null,
                 enter = slideInVertically { it },
@@ -135,7 +136,6 @@ private fun LoginScreen(
                 isError = passError != null,
                 modifier = Modifier.fillMaxWidth()
             )
-            // Se anima la aparición del error de contraseña
             AnimatedVisibility(
                 visible = passError != null,
                 enter = slideInVertically { it },

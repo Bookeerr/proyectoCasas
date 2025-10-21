@@ -15,16 +15,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-// Paleta de colores para el tema claro, usando nuestros nuevos rojos.
 private val LightColorScheme = lightColorScheme(
-    primary = Red40,           // El color principal (AppTopBar, botones) será nuestro rojo elegante.
+    primary = Red40,
     secondary = LightRed40,
     tertiary = RedGrey40
 )
 
-// Paleta de colores para el tema oscuro.
 private val DarkColorScheme = darkColorScheme(
-    primary = Red80,           // El color principal en modo oscuro.
+    primary = Red80,
     secondary = LightRed80,
     tertiary = RedGrey80
 )
@@ -32,7 +30,6 @@ private val DarkColorScheme = darkColorScheme(
 @Composable
 fun RentfageTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Se cambia a `false` para desactivar el color dinámico y forzar nuestra paleta de rojos.
     dynamicColor: Boolean = false, 
     content: @Composable () -> Unit
 ) {
@@ -44,14 +41,9 @@ fun RentfageTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
-    val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
-        }
-    }
+
+    // El bloque SideEffect que forzaba el color de la barra de estado ha sido eliminado.
+    // Ahora el sistema se encargará de gestionarlo automáticamente, lo que arregla el problema visual.
 
     MaterialTheme(
         colorScheme = colorScheme,

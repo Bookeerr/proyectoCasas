@@ -6,12 +6,14 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.example.rentfage.ui.screen.HomeScreen
 import com.example.rentfage.ui.screen.DetalleCasaScreen
@@ -28,6 +30,11 @@ fun AppNavGraph(navController: NavHostController) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    val showTopBar = currentRoute != Route.Login.path && currentRoute != Route.Register.path
+
     val goHome: () -> Unit    = { navController.navigate(Route.Home.path) }
     val goLogin: () -> Unit   = { navController.navigate(Route.Login.path) }
     val goRegister: () -> Unit = { navController.navigate(Route.Register.path) }
@@ -37,9 +44,10 @@ fun AppNavGraph(navController: NavHostController) {
 
     ModalNavigationDrawer(
         drawerState = drawerState,
+        gesturesEnabled = showTopBar,
         drawerContent = { 
             AppDrawer(
-                currentRoute = null, 
+                currentRoute = currentRoute, 
                 items = defaultDrawerItems(
                     onHome = {
                         scope.launch { drawerState.close() }
@@ -59,12 +67,12 @@ fun AppNavGraph(navController: NavHostController) {
     ) {
         Scaffold(
             topBar = {
-                AppTopBar(
-                    onOpenDrawer = { scope.launch { drawerState.open() } },
-                    onHome = goHome,
-                    onLogin = goLogin,
-                    onRegister = goRegister
-                )
+                if (showTopBar) {
+                    // Se corrige la llamada a AppTopBar para que solo pase el parámetro necesario
+                    AppTopBar(
+                        onOpenDrawer = { scope.launch { drawerState.open() } }
+                    )
+                }
             }
         ) { innerPadding ->
             NavHost(
@@ -92,12 +100,10 @@ fun AppNavGraph(navController: NavHostController) {
                     )
                 }
 
-
                 composable(
                     route = Route.DetalleCasa.path,
                     arguments = listOf(navArgument("casaId") { type = NavType.IntType })
                 ) { backStackEntry ->
-
                     val casaId = backStackEntry.arguments?.getInt("casaId") ?: 0
                     DetalleCasaScreen(casaId = casaId)
                 }
