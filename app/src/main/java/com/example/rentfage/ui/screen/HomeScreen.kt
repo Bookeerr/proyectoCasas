@@ -1,7 +1,7 @@
 package com.example.rentfage.ui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable // Import para hacer que los elementos sean clicables
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,24 +23,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+// Se importan los datos desde el nuevo archivo central
+import com.example.rentfage.data.local.Casa
+import com.example.rentfage.data.local.casasDeEjemplo
 
-private data class House(
-    val id: Int,
-    val price: String,
-    val address: String,
-    val details: String
-)
-
-private val sampleHouses = listOf(
-    House(1, "UF 28.500", "Av. Vitacura, Vitacura, Santiago", "4 hab | 5 baños | 450 m²"),
-    House(2, "UF 35.000", "Camino La Dehesa, Lo Barnechea, Santiago", "5 hab | 6 baños | 600 m² | Piscina"),
-    House(3, "UF 26.500", "San Damián, Las Condes, Santiago", "4 hab | 4 baños | 500 m² | Jardín amplio"),
-    House(4, "UF 18.000", "Isidora Goyenechea, Las Condes, Santiago", "3 hab | 3 baños | 220 m² | Penthouse")
-)
+// La data class y la lista de ejemplo han sido eliminadas de este archivo
 
 @Composable
 fun HomeScreen(
-    // Se añade el nuevo parámetro para aceptar la acción de clic
     onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
@@ -57,21 +47,21 @@ fun HomeScreen(
                 modifier = Modifier.padding(bottom = 8.dp)
             )
         }
-        items(sampleHouses) { house ->
-            // Se pasa la acción de clic a cada tarjeta
-            HouseCard(house = house, onClick = { onHouseClick(house.id) })
+        // Se usa la lista `casasDeEjemplo` del archivo SampleData.kt
+        items(casasDeEjemplo) { casa ->
+            // Se pasa la `casa` y la acción de clic a cada tarjeta
+            HouseCard(casa = casa, onClick = { onHouseClick(casa.id) })
         }
     }
 }
 
 @Composable
 private fun HouseCard(
-    house: House,
-    // La tarjeta ahora acepta una acción de clic
+    // La tarjeta ahora recibe un objeto `Casa`
+    casa: Casa,
     onClick: () -> Unit
 ) {
     Card(
-        // Se añade el modificador clickable para que toda la tarjeta sea un botón
         modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = MaterialTheme.shapes.medium
@@ -90,19 +80,19 @@ private fun HouseCard(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = house.price,
+                    text = casa.price,
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = house.address,
+                    text = casa.address,
                     style = MaterialTheme.typography.titleMedium
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = house.details,
+                    text = casa.details,
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Gray
                 )
