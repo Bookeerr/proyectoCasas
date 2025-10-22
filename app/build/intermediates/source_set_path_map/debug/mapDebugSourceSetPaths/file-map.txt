@@ -34,8 +34,8 @@ com.example.rentfage.app-room-ktx-2.6.1-32 C:\Users\quint\.gradle\caches\8.13\tr
 com.example.rentfage.app-ui-graphics-release-33 C:\Users\quint\.gradle\caches\8.13\transforms\c0f0b90d3e6f8cf413ed3b15204fe1c5\transformed\ui-graphics-release\res
 com.example.rentfage.app-foundation-release-34 C:\Users\quint\.gradle\caches\8.13\transforms\c3bd561793db63fb808432d22ce71afa\transformed\foundation-release\res
 com.example.rentfage.app-emoji2-1.4.0-35 C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\res
-com.example.rentfage.app-coil-base-2.6.0-36 C:\Users\quint\.gradle\caches\8.13\transforms\c9343234a2c30590626cd468f6368073\transformed\coil-base-2.6.0\res
-com.example.rentfage.app-appcompat-resources-1.6.1-37 C:\Users\quint\.gradle\caches\8.13\transforms\ccf32c9af056b98c64d387303ecf5891\transformed\appcompat-resources-1.6.1\res
+com.example.rentfage.app-appcompat-resources-1.6.1-36 C:\Users\quint\.gradle\caches\8.13\transforms\ccf32c9af056b98c64d387303ecf5891\transformed\appcompat-resources-1.6.1\res
+com.example.rentfage.app-coil-base-2.7.0-37 C:\Users\quint\.gradle\caches\8.13\transforms\d66535bbb32965ba27d9dfcb0fd39167\transformed\coil-base-2.7.0\res
 com.example.rentfage.app-navigation-runtime-release-38 C:\Users\quint\.gradle\caches\8.13\transforms\dba5d5e09790e2d7d2ea06439544efc2\transformed\navigation-runtime-release\res
 com.example.rentfage.app-material-icons-core-release-39 C:\Users\quint\.gradle\caches\8.13\transforms\e0bf7ba8308e4169f5e0d5a8db805fe4\transformed\material-icons-core-release\res
 com.example.rentfage.app-sqlite-framework-2.4.0-40 C:\Users\quint\.gradle\caches\8.13\transforms\e95c25d947f71c301e55a7662d98a467\transformed\sqlite-framework-2.4.0\res

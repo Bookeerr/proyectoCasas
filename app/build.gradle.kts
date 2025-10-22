@@ -58,19 +58,18 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    //librerias nuevas, ahora sí con las versiones del profesor
+
     implementation("androidx.navigation:navigation-compose:2.9.5")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
-    // Material icons (necesarios para Visibility / VisibilityOff)
+    // Material icons
     implementation("androidx.compose.material:material-icons-extended")
 
-    // Dependencias de Room, como en el ejemplo del profesor
+
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
 
-    // Nueva dependencia para cargar imágenes desde internet
-    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("io.coil-kt:coil-compose:2.7.0")
 }

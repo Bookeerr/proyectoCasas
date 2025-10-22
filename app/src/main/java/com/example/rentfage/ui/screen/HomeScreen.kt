@@ -1,5 +1,7 @@
 package com.example.rentfage.ui.screen
 
+import android.content.Context
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,8 +25,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.content.FileProvider
 import com.example.rentfage.data.local.Casa
 import com.example.rentfage.data.local.casasDeEjemplo
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
+// --- Funciones de utilidad para manejar archivos ---
+
+// crear archivo en el cache
+private fun createTempImageFile(context: Context): File {
+    val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+    val storageDir = File(context.cacheDir, "images").apply {
+        if (!exists()) mkdirs()
+    }
+    return File(storageDir, "IMG_${timeStamp}.jpg")
+}
+
+//obtener url del archivo en cache
+private fun getImageUriForFile(context: Context, file: File): Uri {
+    val authority = "${context.packageName}.fileprovider"
+    return FileProvider.getUriForFile(context, authority, file)
+}
+
+// --- Pantalla Principal ---
 
 @Composable
 fun HomeScreen(
@@ -32,6 +58,13 @@ fun HomeScreen(
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
 ) {
+
+    val context = LocalContext.current
+    var photoUriString by rememberSaveable { mutableStateOf<String?>(null)  }
+    var pendingCaptureUri by remember { mutableStateOf<Uri?>(null) }
+
+
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),

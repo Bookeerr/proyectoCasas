@@ -8,6 +8,10 @@
         "source": "com.example.rentfage.app-main-49:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.rentfage.app-debug-47:/xml_file_paths.xml.flat",
+        "source": "com.example.rentfage.app-main-49:/xml/file_paths.xml"
+    },
+    {
         "merged": "com.example.rentfage.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
         "source": "com.example.rentfage.app-main-49:/drawable/ic_launcher_foreground.xml"
     },

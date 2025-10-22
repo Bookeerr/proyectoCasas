@@ -91,6 +91,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\quint\\.gradle\\caches\\8.13\\transforms\\d66535bbb32965ba27d9dfcb0fd39167\\transformed\\coil-base-2.7.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "49",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "76",
+                        "startColumns": "4",
+                        "startOffsets": "4732",
+                        "endColumns": "49",
+                        "endOffsets": "4777"
+                    }
+                },
+                {
                     "source": "C:\\Users\\quint\\.gradle\\caches\\8.13\\transforms\\a6710f50f470e4b93956d4798a7761a8\\transformed\\navigation-common-release\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,15,21,27,30",
@@ -200,23 +217,6 @@
                         "endLines": "75,78,79,81,82,112,125,126,127,128,129,130,131,193,194,195,196,197,198,199,200,201,203,204,205,210,227",
                         "endColumns": "73,57,54,50,54,52,64,53,65,100,57,51,59,61,53,49,53,45,53,45,41,39,46,35,89,12,12",
                         "endOffsets": "4727,4891,4946,5063,5118,6680,7574,7628,7694,7795,7853,7905,7965,12468,12522,12572,12626,12672,12726,12772,12814,12854,12972,13008,13098,13321,14371"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\quint\\.gradle\\caches\\8.13\\transforms\\c9343234a2c30590626cd468f6368073\\transformed\\coil-base-2.6.0\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "49",
-                        "endOffsets": "100"
-                    },
-                    "to": {
-                        "startLines": "76",
-                        "startColumns": "4",
-                        "startOffsets": "4732",
-                        "endColumns": "49",
-                        "endOffsets": "4777"
                     }
                 },
                 {
