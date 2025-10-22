@@ -5,9 +5,8 @@ sealed class Route(val path: String) { // Cada objeto representa una pantalla
     data object Home     : Route("home")     // Ruta Home
     data object Login    : Route("login")    // Ruta Login
     data object Register : Route("register") // Ruta Registro
-
-    // Ruta para el detalle de una casa
-    data object DetalleCasa : Route("detalle_casa/{casaId}")
+    data object Perfil   : Route("perfil")   // ruta para el perfil
+    data object DetalleCasa : Route("detalle_casa/{casaId}") // ruta para el detalle de las casas
 }
 
 /*

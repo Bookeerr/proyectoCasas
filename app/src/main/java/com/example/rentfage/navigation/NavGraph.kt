@@ -18,6 +18,7 @@ import androidx.navigation.navArgument
 import com.example.rentfage.ui.screen.HomeScreen
 import com.example.rentfage.ui.screen.DetalleCasaScreen
 import com.example.rentfage.ui.screen.LoginScreenVm
+import com.example.rentfage.ui.screen.PerfilScreen
 import com.example.rentfage.ui.screen.RegisterScreenVm
 import com.example.rentfage.ui.components.AppDrawer
 import com.example.rentfage.ui.components.AppTopBar
@@ -38,6 +39,7 @@ fun AppNavGraph(navController: NavHostController) {
     val goHome: () -> Unit    = { navController.navigate(Route.Home.path) }
     val goLogin: () -> Unit   = { navController.navigate(Route.Login.path) }
     val goRegister: () -> Unit = { navController.navigate(Route.Register.path) }
+    val goPerfil: () -> Unit   = { navController.navigate(Route.Perfil.path) }
     val onHouseClick: (Int) -> Unit = { casaId ->
         navController.navigate("detalle_casa/$casaId")
     }
@@ -48,6 +50,7 @@ fun AppNavGraph(navController: NavHostController) {
         drawerContent = { 
             AppDrawer(
                 currentRoute = currentRoute, 
+                //llamada para incluir la nueva acción onPerfil aqui se ven todas
                 items = defaultDrawerItems(
                     onHome = {
                         scope.launch { drawerState.close() }
@@ -60,6 +63,10 @@ fun AppNavGraph(navController: NavHostController) {
                     onRegister = {
                         scope.launch { drawerState.close() }
                         goRegister()
+                    },
+                    onPerfil = {
+                        scope.launch { drawerState.close() }
+                        goPerfil()
                     }
                 )
             )
@@ -68,7 +75,6 @@ fun AppNavGraph(navController: NavHostController) {
         Scaffold(
             topBar = {
                 if (showTopBar) {
-                    // Se corrige la llamada a AppTopBar para que solo pase el parámetro necesario
                     AppTopBar(
                         onOpenDrawer = { scope.launch { drawerState.open() } }
                     )
@@ -98,6 +104,9 @@ fun AppNavGraph(navController: NavHostController) {
                         onRegisteredNavigateLogin = goLogin,
                         onGoLogin = goLogin
                     )
+                }
+                composable(Route.Perfil.path) {
+                    PerfilScreen(onLogout = goLogin)
                 }
 
                 composable(
