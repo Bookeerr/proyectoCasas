@@ -58,7 +58,7 @@ class AuthViewModel : ViewModel() {
             DemoUser(name = "demo", email = "demo@duoc.cl", phone = "987654321", pass = "Demo123!")
         )
         // Variable para guardar el email del usuario que ha iniciado sesión
-        var activeUserEmail: String? = null // es como avisar quien inicio sesion
+        var activeUserEmail: String? = null // avisar quien inicio sesion
     }
 
     private val _login = MutableStateFlow(LoginUiState())
