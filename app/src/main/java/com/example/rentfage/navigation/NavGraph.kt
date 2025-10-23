@@ -18,7 +18,7 @@ import androidx.navigation.navArgument
 import com.example.rentfage.ui.screen.HomeScreen
 import com.example.rentfage.ui.screen.DetalleCasaScreen
 import com.example.rentfage.ui.screen.LoginScreenVm
-import com.example.rentfage.ui.screen.PerfilScreen
+import com.example.rentfage.ui.screen.PerfilScreenVm
 import com.example.rentfage.ui.screen.RegisterScreenVm
 import com.example.rentfage.ui.components.AppDrawer
 import com.example.rentfage.ui.components.AppTopBar
@@ -50,7 +50,6 @@ fun AppNavGraph(navController: NavHostController) {
         drawerContent = { 
             AppDrawer(
                 currentRoute = currentRoute, 
-                //llamada para incluir la nueva acción onPerfil aqui se ven todas
                 items = defaultDrawerItems(
                     onHome = {
                         scope.launch { drawerState.close() }
@@ -105,8 +104,10 @@ fun AppNavGraph(navController: NavHostController) {
                         onGoLogin = goLogin
                     )
                 }
+                // Define la pantalla que se mostrará cuando se navegue a la ruta "perfil".
+                // Le pasamos la acción `goLogin` para que la pantalla sepa qué hacer al cerrar sesión.
                 composable(Route.Perfil.path) {
-                    PerfilScreen(onLogout = goLogin)
+                    PerfilScreenVm(onLogout = goLogin)  //para poder abrir mi perfil en la app y cerrar sesión
                 }
 
                 composable(

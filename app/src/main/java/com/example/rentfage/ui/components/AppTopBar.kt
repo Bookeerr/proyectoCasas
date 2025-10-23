@@ -37,7 +37,7 @@ fun AppTopBar(
                 Icon(imageVector = Icons.Filled.Menu, contentDescription = "Menú")
             }
         },
-        // El bloque de `actions` ha sido eliminado por completo
+
         actions = {}
     )
 }

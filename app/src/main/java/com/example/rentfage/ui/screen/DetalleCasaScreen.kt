@@ -23,10 +23,10 @@ import com.example.rentfage.data.local.casasDeEjemplo
 
 @Composable
 fun DetalleCasaScreen(casaId: Int) {
-    // 1. Se busca la casa correcta en la lista de ejemplo usando el ID.
+    // 1. Se busca la casa correcta en la lista.
     val casa = casasDeEjemplo.find { it.id == casaId }
 
-    // 2. Si no se encuentra la casa (por un ID incorrecto), se muestra un mensaje.
+    // 2. Si no se encuentra la casa, se muestra un mensaje.
     if (casa == null) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("Casa no encontrada.")
@@ -73,13 +73,13 @@ fun DetalleCasaScreen(casaId: Int) {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Esta magnífica propiedad ubicada en ${casa.address} cuenta con ${casa.details}. Una oportunidad única en una de las mejores zonas de la ciudad, ideal para familias que buscan comodidad y lujo. Contacte para más detalles y agendar una visita.",
+                    text = "Esta magnifica propiedad ubicada en ${casa.address} cuenta con ${casa.details}. Una oportunidad unica en una de las mejores zonas de santiago. Contacte para más detalles y agendar una visita.",
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Text(
-                    text = "Galería de Imágenes",
+                    text = "Galeria de Imágenes",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )

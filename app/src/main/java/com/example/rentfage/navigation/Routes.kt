@@ -1,6 +1,6 @@
 package com.example.rentfage.navigation
 
-// Clase sellada para rutas: evita "strings mágicos" y facilita refactors
+// Clase sellada para rutas
 sealed class Route(val path: String) { // Cada objeto representa una pantalla
     data object Home     : Route("home")     // Ruta Home
     data object Login    : Route("login")    // Ruta Login
