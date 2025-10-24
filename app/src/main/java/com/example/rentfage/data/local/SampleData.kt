@@ -5,10 +5,11 @@ data class Casa(
     val id: Int,
     val price: String,
     val address: String,
-    val details: String
+    val details: String,
+    var isFavorite: Boolean = false // Por defecto ninguna es favorita
 )
 
-// la lista de casas.
+// La lista de casas de ejemplo se mantiene igual.
 val casasDeEjemplo = listOf(
     Casa(1, "UF 28.500", "Av. Vitacura, Vitacura, Santiago", "4 hab | 5 baños | 450 m²"),
     Casa(2, "UF 35.000", "Camino La Dehesa, Lo Barnechea, Santiago", "5 hab | 6 baños | 600 m² | Piscina"),
