@@ -46,6 +46,7 @@ fun HomeScreenVm(
     // Se observa el estado (la lista de casas)
     val state by vm.uiState.collectAsState()
 //prueba
+    //prueba
     //  es el que da las órdenes de qué hacer cuando el usuario aprieta ese botón
     HomeScreen(
         casas = state.casas, // sirve para dar orden de mostrar
