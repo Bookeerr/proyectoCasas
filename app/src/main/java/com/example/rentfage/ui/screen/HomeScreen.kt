@@ -1,5 +1,14 @@
 package com.example.rentfage.ui.screen
 
+// --- 1. IMPORTACIONES AÑADIDAS ---
+import com.example.rentfage.data.local.storage.UserPreferences // Para usar DataStore
+import androidx.compose.material.icons.filled.Person           // Icono de usuario logueado
+import androidx.compose.material.icons.filled.PersonOff        // Icono de usuario no logueado
+import androidx.compose.runtime.remember                       // Para 'remember { UserPreferences(context) }'
+import androidx.compose.ui.platform.LocalContext               // Para obtener el contexto
+import androidx.lifecycle.compose.collectAsStateWithLifecycle  // Para observar el Flow de DataStore
+import androidx.compose.foundation.layout.Row                  // Para poner el título y el icono juntos
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -34,37 +43,39 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentfage.data.local.Casa
 import com.example.rentfage.ui.viewmodel.CasasViewModel
 
-// 1. La funcion que se conecta al ViewModel
 @Composable
 fun HomeScreenVm(
     onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
 ) {
-    // creamos una variable para poder acceder a casasViewModel
+    // --- 2. LEER DATOS DESDE DATASTORE ---
+    val context = LocalContext.current
+    val userPrefrs = remember { UserPreferences(context) }
+    // Observamos el valor 'isLoggedIn' en tiempo real.
+    val isLoggedIn by userPrefrs.isLoggedIn.collectAsStateWithLifecycle(initialValue = false)
+
     val vm: CasasViewModel = viewModel()
-    // Se observa el estado (la lista de casas)
     val state by vm.uiState.collectAsState()
-//prueba
-    //prueba
-    //  es el que da las órdenes de qué hacer cuando el usuario aprieta ese botón
+
     HomeScreen(
-        casas = state.casas, // sirve para dar orden de mostrar
-        onHouseClick = onHouseClick, // tipo de orden para ver detalles de la casa
-        onGoLogin = onGoLogin, // tipo de orden para ir a login
-        onGoRegister = onGoRegister, // tipo de orden para ir a registro
-        onToggleFavorite = { casaId -> vm.toggleFavorite(casaId) } // Se pasa la acción de marcar favorito
+        casas = state.casas,
+        isLoggedIn = isLoggedIn, // <-- 3. Pasamos el nuevo valor a la pantalla de UI
+        onHouseClick = onHouseClick,
+        onGoLogin = onGoLogin,
+        onGoRegister = onGoRegister,
+        onToggleFavorite = { casaId -> vm.toggleFavorite(casaId) }
     )
 }
 
-// 2. La funcion que solo dibuja la pantalla
 @Composable
 private fun HomeScreen(
-    casas: List<Casa>, // estan las listas de las casas
-    onHouseClick: (Int) -> Unit, // es una orden, lleva a detalles de las casas
-    onGoLogin: () -> Unit, // es una orden, lleva a login
-    onGoRegister: () -> Unit, // es una orden, lleva a registro
-    onToggleFavorite: (Int) -> Unit // se agrego la orden de poner en favorito las casas
+    casas: List<Casa>,
+    isLoggedIn: Boolean, // <-- 4. Recibimos el estado de la sesión
+    onHouseClick: (Int) -> Unit,
+    onGoLogin: () -> Unit,
+    onGoRegister: () -> Unit,
+    onToggleFavorite: (Int) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -72,29 +83,41 @@ private fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item {
-            Text(
-                text = "Propiedades Disponibles",
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
+            // --- 5. CAMBIO VISUAL EN LA UI ---
+            // Ponemos el título y el nuevo icono en una fila.
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "Propiedades Disponibles",
+                    style = MaterialTheme.typography.headlineMedium,
+                    modifier = Modifier.padding(bottom = 8.dp).weight(1f) // El texto ocupa el espacio sobrante
+                )
+                // Este es el icono que cambia según el estado de la sesión.
+                Icon(
+                    imageVector = if (isLoggedIn) Icons.Default.Person else Icons.Default.PersonOff,
+                    contentDescription = if (isLoggedIn) "Usuario Logueado" else "Usuario no Logueado",
+                    tint = if(isLoggedIn) MaterialTheme.colorScheme.primary else Color.Gray
+                )
+            }
         }
-        // Ahora la lista de items viene del ViewModel
         items(casas) { casa ->
             HouseCard(
                 casa = casa,
                 onClick = { onHouseClick(casa.id) },
-                onToggleFavorite = { onToggleFavorite(casa.id) } // Se pasa la accion a la tarjeta
+                onToggleFavorite = { onToggleFavorite(casa.id) }
             )
         }
     }
 }
 
-// 3. La tarjeta de la casa, ahora con el botón de favorito
+// La tarjeta HouseCard no necesita cambios
 @Composable
 private fun HouseCard(
     casa: Casa,
     onClick: () -> Unit,
-    onToggleFavorite: () -> Unit // se agrego la orden de poner en favorito las casas
+    onToggleFavorite: () -> Unit
 ) {
     ElevatedCard(
         modifier = Modifier
@@ -111,37 +134,34 @@ private fun HouseCard(
                     .background(Color.LightGray)
             ) {
                 Text("Imagen de la casa", modifier = Modifier.align(Alignment.Center), color = Color.Gray)
-
-                // Icono de Favorito
-                IconButton( // se agrego el icono de favorito, como boton
-                    onClick = onToggleFavorite, // cuando se aprete el boton se va a ejecutar
-                    modifier = Modifier.align(Alignment.TopEnd) // se coloca en la esquina
+                IconButton(
+                    onClick = onToggleFavorite,
+                    modifier = Modifier.align(Alignment.TopEnd)
                 ) {
                     Icon(
-                        imageVector = if (casa.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder, // se cambia el icono si es que la selecciona
-                        contentDescription = "Marcar como favorito", // descripcion del icono
-                        tint = if (casa.isFavorite) Color.Red else Color.White // se cambia el color del icono
+                        imageVector = if (casa.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                        contentDescription = "Marcar como favorito",
+                        tint = if (casa.isFavorite) Color.Red else Color.White
                     )
                 }
             }
-
-            Column(modifier = Modifier.padding(16.dp)) { // se agrega un espacio entre la imagen y el texto
+            Column(modifier = Modifier.padding(16.dp)) {
                 Text(
-                    text = casa.price, // texto sobre la casa
-                    style = MaterialTheme.typography.headlineSmall, // tipo de letra
-                    fontWeight = FontWeight.Bold, // tipo de letra en negrita
-                    color = MaterialTheme.colorScheme.primary // color del texto sea el primario de la app
+                    text = casa.price,
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
                 )
-                Spacer(modifier = Modifier.height(4.dp)) // espacio
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = casa.address, // texto sobre la casa, mas especifico la ubi
-                    style = MaterialTheme.typography.titleMedium // tipo de letra
+                    text = casa.address,
+                    style = MaterialTheme.typography.titleMedium
                 )
-                Spacer(modifier = Modifier.height(8.dp)) // espacio
+                Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = casa.details, // texto sobre la casa, mas especifico la descripcion
-                    style = MaterialTheme.typography.bodyMedium, // tipo de letra
-                    color = Color.Gray // color del texto
+                    text = casa.details,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.Gray
                 )
             }
         }

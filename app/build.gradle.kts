@@ -72,4 +72,7 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
 
     implementation("io.coil-kt:coil-compose:2.7.0")
+
+    //datastore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
 }
