@@ -1,13 +1,12 @@
 package com.example.rentfage.ui.screen
 
-// --- 1. IMPORTACIONES AÑADIDAS ---
-import com.example.rentfage.data.local.storage.UserPreferences // Para usar DataStore
-import androidx.compose.material.icons.filled.Person           // Icono de usuario logueado
-import androidx.compose.material.icons.filled.PersonOff        // Icono de usuario no logueado
-import androidx.compose.runtime.remember                       // Para 'remember { UserPreferences(context) }'
-import androidx.compose.ui.platform.LocalContext               // Para obtener el contexto
-import androidx.lifecycle.compose.collectAsStateWithLifecycle  // Para observar el Flow de DataStore
-import androidx.compose.foundation.layout.Row                  // Para poner el título y el icono juntos
+import com.example.rentfage.data.local.storage.UserPreferences
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PersonOff
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.foundation.layout.Row
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -39,28 +38,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.rentfage.data.local.Casa
 import com.example.rentfage.ui.viewmodel.CasasViewModel
 
+// ahora recibe el ViewModel como parámetro
 @Composable
 fun HomeScreenVm(
+    vm: CasasViewModel, // Se añade como parámetro
     onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
 ) {
-    // --- 2. LEER DATOS DESDE DATASTORE ---
     val context = LocalContext.current
     val userPrefrs = remember { UserPreferences(context) }
-    // Observamos el valor 'isLoggedIn' en tiempo real.
     val isLoggedIn by userPrefrs.isLoggedIn.collectAsStateWithLifecycle(initialValue = false)
 
-    val vm: CasasViewModel = viewModel()
+
     val state by vm.uiState.collectAsState()
 
     HomeScreen(
         casas = state.casas,
-        isLoggedIn = isLoggedIn, // <-- 3. Pasamos el nuevo valor a la pantalla de UI
+        isLoggedIn = isLoggedIn, // Se pasa isLoggedIn
         onHouseClick = onHouseClick,
         onGoLogin = onGoLogin,
         onGoRegister = onGoRegister,
@@ -71,20 +69,18 @@ fun HomeScreenVm(
 @Composable
 private fun HomeScreen(
     casas: List<Casa>,
-    isLoggedIn: Boolean, // <-- 4. Recibimos el estado de la sesión
+    isLoggedIn: Boolean,
     onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit,
     onToggleFavorite: (Int) -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize(), //
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item {
-            // --- 5. CAMBIO VISUAL EN LA UI ---
-            // Ponemos el título y el nuevo icono en una fila.
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
@@ -92,9 +88,8 @@ private fun HomeScreen(
                 Text(
                     text = "Propiedades Disponibles",
                     style = MaterialTheme.typography.headlineMedium,
-                    modifier = Modifier.padding(bottom = 8.dp).weight(1f) // El texto ocupa el espacio sobrante
+                    modifier = Modifier.padding(bottom = 8.dp).weight(1f)
                 )
-                // Este es el icono que cambia según el estado de la sesión.
                 Icon(
                     imageVector = if (isLoggedIn) Icons.Default.Person else Icons.Default.PersonOff,
                     contentDescription = if (isLoggedIn) "Usuario Logueado" else "Usuario no Logueado",
@@ -112,7 +107,6 @@ private fun HomeScreen(
     }
 }
 
-// La tarjeta HouseCard no necesita cambios
 @Composable
 private fun HouseCard(
     casa: Casa,

@@ -60,6 +60,9 @@ MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\qui
 MERGED from [androidx.core:core-ktx:1.17.0] C:\Users\quint\.gradle\caches\8.13\transforms\15306ee4286a33bba3226b295a9d0e9a\transformed\core-ktx-1.17.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\0e4ada9c890ea6c69f2c3af41e3923eb\transformed\room-runtime-2.6.1\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\c0e1990fb45e2c337347020bffee7eec\transformed\room-ktx-2.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\309a8286d7e76d88e111f728aa41fed0\transformed\datastore-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\795ac61c1367e3105fbfa7dc9e21e550\transformed\datastore-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\ddcc3f31c6de92cf3c93f9edf9e83aba\transformed\datastore-preferences-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\e95c25d947f71c301e55a7662d98a467\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\8a41e5798c7a295469bfaa3478fbf1f1\transformed\sqlite-2.4.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\quint\.gradle\caches\8.13\transforms\f622abdae9332f1b002ea20b690c29b1\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
@@ -274,6 +277,12 @@ MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.1
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\0e4ada9c890ea6c69f2c3af41e3923eb\transformed\room-runtime-2.6.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\c0e1990fb45e2c337347020bffee7eec\transformed\room-ktx-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\c0e1990fb45e2c337347020bffee7eec\transformed\room-ktx-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\309a8286d7e76d88e111f728aa41fed0\transformed\datastore-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\309a8286d7e76d88e111f728aa41fed0\transformed\datastore-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\795ac61c1367e3105fbfa7dc9e21e550\transformed\datastore-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\795ac61c1367e3105fbfa7dc9e21e550\transformed\datastore-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\ddcc3f31c6de92cf3c93f9edf9e83aba\transformed\datastore-preferences-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] C:\Users\quint\.gradle\caches\8.13\transforms\ddcc3f31c6de92cf3c93f9edf9e83aba\transformed\datastore-preferences-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\e95c25d947f71c301e55a7662d98a467\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\e95c25d947f71c301e55a7662d98a467\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\8a41e5798c7a295469bfaa3478fbf1f1\transformed\sqlite-2.4.0\AndroidManifest.xml:20:5-44

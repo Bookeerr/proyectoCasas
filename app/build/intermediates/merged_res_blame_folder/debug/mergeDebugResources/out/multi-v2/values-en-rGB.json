@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.rentfage.app-mergeDebugResources-45:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.rentfage.app-mergeDebugResources-48:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\quint\\.gradle\\caches\\8.13\\transforms\\c3bd561793db63fb808432d22ce71afa\\transformed\\foundation-release\\res\\values-en-rGB\\values-en-rGB.xml",
