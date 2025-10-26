@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.foundation.layout.Row
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -36,15 +37,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.rentfage.data.local.Casa
 import com.example.rentfage.ui.viewmodel.CasasViewModel
 
-// ahora recibe el ViewModel como parámetro
+// ahora recibe el ViewModel como pará
 @Composable
 fun HomeScreenVm(
-    vm: CasasViewModel, // Se añade como parámetro
+    vm: CasasViewModel,
     onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit
@@ -53,12 +56,11 @@ fun HomeScreenVm(
     val userPrefrs = remember { UserPreferences(context) }
     val isLoggedIn by userPrefrs.isLoggedIn.collectAsStateWithLifecycle(initialValue = false)
 
-
     val state by vm.uiState.collectAsState()
 
     HomeScreen(
         casas = state.casas,
-        isLoggedIn = isLoggedIn, // Se pasa isLoggedIn
+        isLoggedIn = isLoggedIn,
         onHouseClick = onHouseClick,
         onGoLogin = onGoLogin,
         onGoRegister = onGoRegister,
@@ -76,7 +78,7 @@ private fun HomeScreen(
     onToggleFavorite: (Int) -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize(), //
+        modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -121,13 +123,28 @@ private fun HouseCard(
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
+            // Contenedor para la imagen y el icono de favorito
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
-                    .background(Color.LightGray)
             ) {
-                Text("Imagen de la casa", modifier = Modifier.align(Alignment.Center), color = Color.Gray)
+                // Image(fotos)
+                Image(
+                    // 'painterResource' busca una imagen en la carpeta 'drawable'.
+                    // 'id = casa.imageResId' le dice que el ID de la imagen a buscar está guardado en la propiedad 'imageResId' de la casa.
+                    painter = painterResource(id = casa.imageResId),
+
+                    // Texto de ayuda para accesibilidad.
+                    contentDescription = "Imagen de la casa",
+
+                    //  Le decimos como debe ponerse la imagen en el espacio.
+                    // 'ContentScale.Crop' hace que la imagen llene el espacio
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+
+                // Boton de favorito
                 IconButton(
                     onClick = onToggleFavorite,
                     modifier = Modifier.align(Alignment.TopEnd)
@@ -139,6 +156,8 @@ private fun HouseCard(
                     )
                 }
             }
+
+            // detalles de la casa
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
                     text = casa.price,

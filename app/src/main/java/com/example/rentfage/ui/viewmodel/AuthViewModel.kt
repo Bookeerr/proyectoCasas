@@ -55,7 +55,9 @@ class AuthViewModel : ViewModel() {
     companion object {
         // La lista de usuarios ahora es internal para ser visible desde las demas
         internal val USERS = mutableListOf( // se hizo publica
-            DemoUser(name = "demo", email = "demo@duoc.cl", phone = "987654321", pass = "Demo123!")
+            DemoUser(name = "demo", email = "demo@duoc.cl", phone = "987654321", pass = "demo"),
+            // Se añade el nuevo usuario de prueba
+            DemoUser(name = "Prueba", email = "prueba@duocuc.cl", phone = "123456789", pass = "Prueba123!")
         )
         // Variable para guardar el email del usuario que ha iniciado sesión
         var activeUserEmail: String? = null // avisar quien inicio sesion
@@ -92,7 +94,8 @@ class AuthViewModel : ViewModel() {
             delay(500)
 
             val user = USERS.firstOrNull { it.email.equals(s.email, ignoreCase = true) }
-            val ok = user != null && user.pass == s.pass
+            // Se corrige la comprobación para que ignore mayúsculas/minúsculas en la contraseña
+            val ok = user != null && user.pass.equals(s.pass, ignoreCase = true)
 
             if (ok) {
                 // Si el login es correcto, guardamos el email del usuario
