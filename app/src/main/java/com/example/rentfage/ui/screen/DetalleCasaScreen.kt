@@ -102,9 +102,20 @@ fun DetalleCasaScreen(casaId: Int) {
             )
             // la casa 3, usamos las imágenes de la casa 3.
             3 -> listOf(
-
+                R.drawable.dormitorio3,
+                R.drawable.comedor3,
+                R.drawable.cocina3,
+                R.drawable.bano3
 
             )
+
+            4 -> listOf(
+                R.drawable.dormitorio4,
+                R.drawable.comedor4,
+                R.drawable.cocina4,
+                R.drawable.bano4
+            )
+
         }
 
         // 2. Si la lista de imágenes para la galería no está vacía, la mostramos.
