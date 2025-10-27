@@ -82,7 +82,7 @@ fun AppNavGraph(navController: NavHostController) {
 
                 composable(Route.Home.path) {
                     HomeScreenVm(
-                        vm = casasViewModel, // Se pasa la instancia compartida
+                        vm = casasViewModel,
                         onGoLogin = goLogin,
                         onGoRegister = goRegister,
                         onHouseClick = onHouseClick
@@ -105,7 +105,7 @@ fun AppNavGraph(navController: NavHostController) {
                 }
                 composable(Route.Favoritos.path) {
                     FavoritosScreenVm(
-                        vm = casasViewModel, //Se pasa la misma instancia compartida
+                        vm = casasViewModel,
                         onHouseClick = onHouseClick
                     )
                 }
@@ -115,7 +115,8 @@ fun AppNavGraph(navController: NavHostController) {
                     arguments = listOf(navArgument("casaId") { type = NavType.IntType })
                 ) { backStackEntry ->
                     val casaId = backStackEntry.arguments?.getInt("casaId") ?: 0
-                    DetalleCasaScreen(casaId = casaId)
+                    //le pasamos la accion 'goHome' que la pantalla necesita.
+                    DetalleCasaScreen(casaId = casaId, onGoHome = goHome)
                 }
             }
         }
