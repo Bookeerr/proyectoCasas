@@ -138,8 +138,6 @@ private fun PerfilScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            // Se ha eliminadolas imágenes de las casas de esta pantalla.
-
             item {
                 ElevatedCard(modifier = Modifier.fillMaxWidth()) {
                     Column(
