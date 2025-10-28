@@ -59,13 +59,11 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.Priority
 
-@SuppressLint("MissingPermission") 
+@SuppressLint("MissingPermission")
 @Composable
 fun HomeScreenVm(
     vm: CasasViewModel,
-    onHouseClick: (Int) -> Unit,
-    onGoLogin: () -> Unit,
-    onGoRegister: () -> Unit
+    onHouseClick: (Int) -> Unit
 ) {
     val context = LocalContext.current
     val userPrefrs = remember { UserPreferences(context) }
@@ -80,8 +78,7 @@ fun HomeScreenVm(
 
     val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
-            locationResult.locations.lastOrNull()?.let { location ->
-                // Ahora solo mostramos un mensaje de éxito amigable.
+            locationResult.locations.lastOrNull()?.let { 
                 Toast.makeText(context, "¡Ubicación encontrada!", Toast.LENGTH_SHORT).show()
                 fusedLocationClient.removeLocationUpdates(this)
             }
@@ -114,10 +111,8 @@ fun HomeScreenVm(
         val settingsClient = LocationServices.getSettingsClient(context)
 
         settingsClient.checkLocationSettings(settingsRequest)
-            .addOnSuccessListener { 
-                startLocationUpdates()
-            }
-            .addOnFailureListener { exception -> 
+            .addOnSuccessListener { startLocationUpdates() }
+            .addOnFailureListener { exception ->
                 if (exception is ResolvableApiException) {
                     try {
                         val intentSenderRequest = IntentSenderRequest.Builder(exception.resolution).build()
@@ -148,14 +143,9 @@ fun HomeScreenVm(
         casas = state.casas,
         isLoggedIn = isLoggedIn,
         onHouseClick = onHouseClick,
-        onGoLogin = onGoLogin,
-        onGoRegister = onGoRegister,
         onToggleFavorite = { casaId -> vm.toggleFavorite(casaId) },
-        onRequestLocation = { 
-            requestPermissionLauncher.launch(arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ))
+        onRequestLocation = {
+            requestPermissionLauncher.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
         }
     )
 }
@@ -165,8 +155,6 @@ private fun HomeScreen(
     casas: List<Casa>,
     isLoggedIn: Boolean,
     onHouseClick: (Int) -> Unit,
-    onGoLogin: () -> Unit,
-    onGoRegister: () -> Unit,
     onToggleFavorite: (Int) -> Unit,
     onRequestLocation: () -> Unit
 ) {
@@ -188,13 +176,13 @@ private fun HomeScreen(
                 Icon(
                     imageVector = if (isLoggedIn) Icons.Default.Person else Icons.Default.PersonOff,
                     contentDescription = if (isLoggedIn) "Usuario Logueado" else "Usuario no Logueado",
-                    tint = if(isLoggedIn) MaterialTheme.colorScheme.primary else Color.Gray
+                    tint = if (isLoggedIn) MaterialTheme.colorScheme.primary else Color.Gray
                 )
             }
 
             Spacer(modifier = Modifier.height(8.dp))
             Button(
-                onClick = onRequestLocation, 
+                onClick = onRequestLocation,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Buscar Cerca de Mí")
@@ -217,18 +205,13 @@ private fun HouseCard(
     onToggleFavorite: () -> Unit
 ) {
     ElevatedCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
+        modifier = Modifier.fillMaxWidth().clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            ) {
+            Box(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+                // Novedad: Se vuelve a usar Image con painterResource, ya que la imagen es un Int.
                 Image(
                     painter = painterResource(id = casa.imageResId),
                     contentDescription = "Imagen de la casa",
@@ -249,23 +232,11 @@ private fun HouseCard(
             }
 
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = casa.price,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
-                )
+                Text(text = casa.price, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = casa.address,
-                    style = MaterialTheme.typography.titleMedium
-                )
+                Text(text = casa.address, style = MaterialTheme.typography.titleMedium)
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = casa.details,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = Color.Gray
-                )
+                Text(text = casa.details, style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.example.rentfage.ui.screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -37,15 +36,12 @@ import androidx.compose.ui.unit.dp
 import com.example.rentfage.data.local.Casa
 import com.example.rentfage.ui.viewmodel.CasasViewModel
 
-// recibe el ViewModel como parametro
 @Composable
 fun FavoritosScreenVm(
-    vm: CasasViewModel, // Se añade como parámetro
+    vm: CasasViewModel,
     onHouseClick: (Int) -> Unit
 ) {
-
     val state by vm.uiState.collectAsState()
-
     val casasFavoritas = state.casas.filter { it.isFavorite }
 
     FavoritosScreen(
@@ -87,7 +83,7 @@ private fun FavoritosScreen(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(casas) { casa ->
-                    HouseCard(
+                    HouseCardFavorites(
                         casa = casa,
                         onClick = { onHouseClick(casa.id) },
                         onToggleFavorite = { onToggleFavorite(casa.id) }
@@ -98,8 +94,9 @@ private fun FavoritosScreen(
     }
 }
 
+// Novedad: Se ha renombrado a HouseCardFavorites para evitar conflictos.
 @Composable
-private fun HouseCard(
+private fun HouseCardFavorites(
     casa: Casa,
     onClick: () -> Unit,
     onToggleFavorite: () -> Unit
@@ -110,15 +107,13 @@ private fun HouseCard(
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
-            Box(
-                modifier = Modifier.fillMaxWidth().height(200.dp)
-            ) {
-
+            Box(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+                // Novedad: Se vuelve a usar Image con painterResource.
                 Image(
-                    painter = painterResource(id = casa.imageResId), // el busca la imagen que corresponde a esta casa.
+                    painter = painterResource(id = casa.imageResId),
                     contentDescription = "Imagen de la casa",
-                    contentScale = ContentScale.Crop, //La imagen se recorta
-                    modifier = Modifier.fillMaxSize() //Espacio de la imagen
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
                 )
                 IconButton(
                     onClick = onToggleFavorite,
