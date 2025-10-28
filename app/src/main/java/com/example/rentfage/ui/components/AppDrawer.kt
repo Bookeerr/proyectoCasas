@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalDrawerSheet
@@ -45,10 +46,11 @@ fun defaultDrawerItems(
     onLogin: () -> Unit,
     onRegister: () -> Unit,
     onPerfil: () -> Unit,
-    onFavoritos: () -> Unit
+    onFavoritos: () -> Unit,
+    onNosotros: () -> Unit // Novedad: Recibimos la acción para la nueva pantalla.
 ): List<DrawerItem> = listOf(
     DrawerItem("Home", Icons.Filled.Home, onHome),
     DrawerItem("Mi Perfil", Icons.Filled.AccountCircle, onPerfil),
-    DrawerItem("Mis Favoritos", Icons.Filled.Favorite, onFavoritos)
-    // Novedad: Se han eliminado las opciones de Login y Registro del menú.
+    DrawerItem("Mis Favoritos", Icons.Filled.Favorite, onFavoritos),
+    DrawerItem("Nosotros", Icons.Filled.Info, onNosotros) // Novedad: Añadimos el nuevo elemento a la lista.
 )

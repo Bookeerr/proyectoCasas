@@ -23,6 +23,7 @@ import com.example.rentfage.ui.screen.DetalleCasaScreen
 import com.example.rentfage.ui.screen.FavoritosScreenVm
 import com.example.rentfage.ui.screen.HomeScreenVm
 import com.example.rentfage.ui.screen.LoginScreenVm
+import com.example.rentfage.ui.screen.NosotrosScreen
 import com.example.rentfage.ui.screen.PerfilScreenVm
 import com.example.rentfage.ui.screen.RegisterScreenVm
 import com.example.rentfage.ui.viewmodel.CasasViewModel
@@ -37,16 +38,17 @@ fun AppNavGraph(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
-    // Se crea una única instancia del CasasViewModel para compartirla entre pantallas.
     val casasViewModel: CasasViewModel = viewModel()
 
-    val showTopBar = currentRoute != Route.Login.path && currentRoute != Route.Register.path
+    val showTopBar = currentRoute != "login" && currentRoute != "register"
 
-    val goHome: () -> Unit = { navController.navigate(Route.Home.path) }
-    val goLogin: () -> Unit = { navController.navigate(Route.Login.path) }
-    val goRegister: () -> Unit = { navController.navigate(Route.Register.path) }
-    val goPerfil: () -> Unit = { navController.navigate(Route.Perfil.path) }
-    val goFavoritos: () -> Unit = { navController.navigate(Route.Favoritos.path) }
+    val goHome: () -> Unit = { navController.navigate("home") }
+    val goLogin: () -> Unit = { navController.navigate("login") }
+    val goRegister: () -> Unit = { navController.navigate("register") }
+    val goPerfil: () -> Unit = { navController.navigate("perfil") }
+    val goFavoritos: () -> Unit = { navController.navigate("favoritos") }
+    // Novedad: Creamos la acción para navegar a la nueva pantalla.
+    val goNosotros: () -> Unit = { navController.navigate("nosotros") }
     val onHouseClick: (Int) -> Unit = { casaId ->
         navController.navigate("detalle_casa/$casaId")
     }
@@ -62,7 +64,8 @@ fun AppNavGraph(navController: NavHostController) {
                     onLogin = { scope.launch { drawerState.close() }; goLogin() },
                     onRegister = { scope.launch { drawerState.close() }; goRegister() },
                     onPerfil = { scope.launch { drawerState.close() }; goPerfil() },
-                    onFavoritos = { scope.launch { drawerState.close() }; goFavoritos() }
+                    onFavoritos = { scope.launch { drawerState.close() }; goFavoritos() },
+                    onNosotros = { scope.launch { drawerState.close() }; goNosotros() } // Novedad: Pasamos la nueva acción.
                 )
             )
         }
@@ -76,11 +79,11 @@ fun AppNavGraph(navController: NavHostController) {
         ) { innerPadding ->
             NavHost(
                 navController = navController,
-                startDestination = Route.Login.path,
+                startDestination = "login",
                 modifier = Modifier.padding(innerPadding)
             ) {
 
-                composable(Route.Home.path) {
+                composable("home") {
                     HomeScreenVm(
                         vm = casasViewModel,
                         onGoLogin = goLogin,
@@ -88,35 +91,38 @@ fun AppNavGraph(navController: NavHostController) {
                         onHouseClick = onHouseClick
                     )
                 }
-                composable(Route.Login.path) {
+                composable("login") {
                     LoginScreenVm(
                         onLoginOkNavigateHome = goHome,
                         onGoRegister = goRegister
                     )
                 }
-                composable(Route.Register.path) {
+                composable("register") {
                     RegisterScreenVm(
                         onRegisteredNavigateLogin = goLogin,
                         onGoLogin = goLogin
                     )
                 }
-                composable(Route.Perfil.path) {
+                composable("perfil") {
                     PerfilScreenVm(onLogout = goLogin)
                 }
-                composable(Route.Favoritos.path) {
+                composable("favoritos") {
                     FavoritosScreenVm(
                         vm = casasViewModel,
                         onHouseClick = onHouseClick
                     )
                 }
-
                 composable(
-                    route = Route.DetalleCasa.path,
+                    route = "detalle_casa/{casaId}",
                     arguments = listOf(navArgument("casaId") { type = NavType.IntType })
                 ) { backStackEntry ->
                     val casaId = backStackEntry.arguments?.getInt("casaId") ?: 0
-                    //le pasamos la accion 'goHome' que la pantalla necesita.
                     DetalleCasaScreen(casaId = casaId, onGoHome = goHome)
+                }
+
+                // Novedad: Añadimos el nuevo destino al NavHost.
+                composable("nosotros") {
+                    NosotrosScreen()
                 }
             }
         }
