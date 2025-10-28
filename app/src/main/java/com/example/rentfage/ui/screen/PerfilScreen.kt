@@ -18,8 +18,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -43,18 +41,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.rentfage.data.local.Casa
 import com.example.rentfage.ui.viewmodel.AuthViewModel
-import com.example.rentfage.ui.viewmodel.CasasViewModel
 import com.example.rentfage.ui.viewmodel.PerfilViewModel
 import java.io.File
 import java.text.SimpleDateFormat
@@ -76,11 +70,7 @@ private fun getImageUriForFile(context: Context, file: File): Uri {
 fun PerfilScreenVm(onLogout: () -> Unit) {
     val vm: PerfilViewModel = viewModel()
     val authVm: AuthViewModel = viewModel()
-    // Nos conectamos a las casas para poder acceder a la lista.
-    val casasVm: CasasViewModel = viewModel()
     val state by vm.uiState.collectAsState()
-    // Obtenemos  la lista de casas desde el CasasViewModel.
-    val casasState by casasVm.uiState.collectAsState()
 
     // logica de la cámara
     val context = LocalContext.current
@@ -114,13 +104,12 @@ fun PerfilScreenVm(onLogout: () -> Unit) {
         Toast.makeText(context, "Foto eliminada", Toast.LENGTH_SHORT).show()
     }
 
-    // Le pasamos la lista de casas a la pantalla de abajo.
+    // Se le pasan todos los datos
     PerfilScreen(
         name = state.name,
         email = state.email,
         phone = state.phone,
         initials = state.initials,
-        casas = casasState.casas, // Pasamos la lista de casas
         photoUriString = photoUriString,
         showDialog = showDialog,
         onShowDialogChange = { showDialog = it },
@@ -136,7 +125,6 @@ fun PerfilScreenVm(onLogout: () -> Unit) {
 @Composable
 private fun PerfilScreen(
     name: String, email: String, phone: String, initials: String,
-    casas: List<Casa>, // Recibimos la lista de casas
     photoUriString: String?, showDialog: Boolean,
     onShowDialogChange: (Boolean) -> Unit, onTakePicture: () -> Unit, onDeletePicture: () -> Unit,
     onLogout: () -> Unit
@@ -150,28 +138,7 @@ private fun PerfilScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-
-            item {
-                // HorizontalPager es un componente que permite deslizar elementos horizontalmente.
-                val pagerState = rememberPagerState(pageCount = { casas.size }) // Creamos un estado para el pager, diciéndole cuántas páginas (casas) tiene.
-                HorizontalPager(
-                    state = pagerState, // Le pasamos el estado que acabamos de crear.
-                    modifier = Modifier
-                        .fillMaxWidth() // Ocupa todo el ancho.
-                        .height(250.dp) // Le damos altura
-                ) { page -> // Este bloque de código se ejecutará una vez por por cada casa.
-
-                    // Obtenemos la casa que corresponde a la página actual.
-                    val casa = casas[page]
-                    // Usamos el  Image para mostrar la foto de esa casa.
-                    Image(
-                        painter = painterResource(id = casa.imageResId), // Le decimos qué imagen dibujar.
-                        contentDescription = "Imagen de la casa ${casa.address}", // Descripcion
-                        contentScale = ContentScale.Crop, // Hacemos que la imagen se recorte para llenar el espacio.
-                        modifier = Modifier.fillMaxSize() // La imagen ocupa todo el tamaño del Pager.
-                    )
-                }
-            }
+            // Se ha eliminadolas imágenes de las casas de esta pantalla.
 
             item {
                 ElevatedCard(modifier = Modifier.fillMaxWidth()) {
@@ -245,7 +212,7 @@ private fun PerfilScreen(
                                 modifier = Modifier.fillMaxWidth().height(150.dp), //tamaño de la imagen
                                 contentScale = ContentScale.Crop //como se debe mostrar la imagen
                             )
-                            Spacer(Modifier.height(12.dp)) //añade espacio
+                            Spacer(modifier = Modifier.height(12.dp)) //añade espacio
                         }
                         Button(onClick = onTakePicture) { //boton para tomar la foto
                             //muestra el texto del boton

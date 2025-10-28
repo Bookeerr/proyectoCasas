@@ -7,14 +7,22 @@ INJECTED from C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\An
 MERGED from [androidx.navigation:navigation-runtime-android:2.9.5] C:\Users\quint\.gradle\caches\8.13\transforms\dba5d5e09790e2d7d2ea06439544efc2\transformed\navigation-runtime-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-android:2.9.5] C:\Users\quint\.gradle\caches\8.13\transforms\a6710f50f470e4b93956d4798a7761a8\transformed\navigation-common-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-compose-android:2.9.5] C:\Users\quint\.gradle\caches\8.13\transforms\9449331b4afdc32f6dbae071aa4fe48f\transformed\navigation-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\quint\.gradle\caches\8.13\transforms\a00e4038f68989b1a436bbbf1601fd1d\transformed\play-services-location-21.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\550fc1f070ee615f89b31a5464148eb4\transformed\play-services-tasks-18.1.0\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\759c9bdcdc9e2edcac291ced26dfe3e3\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [io.coil-kt:coil-compose:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\aa4498034ac807e639f10151e5af2015\transformed\coil-compose-2.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil-compose-base:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\b017cce55464298c5b50506b00b538c6\transformed\coil-compose-base-2.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\c5b52567bacd783af3a5b9c063c86a11\transformed\coil-2.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil-base:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\d66535bbb32965ba27d9dfcb0fd39167\transformed\coil-base-2.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\ccf32c9af056b98c64d387303ecf5891\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\40d84a7b4b8ed97ba55bc5f17e8d49ea\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\bdab996eb3c312b9b9f4722ac67e4b76\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\64ccf74d6568970444cbde29a397c7c5\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\b5ce193596f85adda9604a3710d97495\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\f6ba6048dd55211f8e4900ef79d0de2f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\9ffe10acba08468003e0aec87278e438\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\0bcb1f5a294d6a45678a49d139f6bc1b\transformed\material3-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\556633a420e23e9fc4920688ac139d8e\transformed\ui-tooling-data\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\6dcd7c74f71aaa5b643a309f1b1ea12e\transformed\ui-tooling-preview\AndroidManifest.xml:17:1-22:12
@@ -35,9 +43,12 @@ MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\quint\.gradle\cache
 MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\quint\.gradle\caches\8.13\transforms\c77134d94e07b7e79cc6332c89f30277\transformed\emoji2-1.4.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.core:core:1.17.0] C:\Users\quint\.gradle\caches\8.13\transforms\a729d0b8908cf6daa89192c37f5c50c4\transformed\core-1.17.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\3f3e8e9f5afed1957bb6e37a6c74e886\transformed\lifecycle-livedata-core-ktx-2.9.4\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\0f47e819bd0720461d1129472bf08b4d\transformed\lifecycle-livedata-2.9.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\915be015f78e7a91e475453230a7b957\transformed\lifecycle-viewmodel-ktx-2.9.4\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\3b7b174c4f351681bfebcbd27ad46256\transformed\lifecycle-livedata-core-2.9.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\b031bafca27178804470307c29dc17ee\transformed\lifecycle-viewmodel-savedstate-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\0b759d48db337622aa36b1a66f2f899f\transformed\lifecycle-viewmodel-2.9.4\AndroidManifest.xml:2:1-5:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\a1463db81c460b6006f0dde18d9afa05\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\9cdb793964b1dd131df2efd4383c2d37\transformed\runtime\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f6da21e02a111fdf0a999f16c30335de\transformed\runtime-annotation\AndroidManifest.xml:2:1-7:12
@@ -87,6 +98,14 @@ MERGED from [androidx.exifinterface:exifinterface:1.3.7] C:\Users\quint\.gradle\
 application
 ADDED from C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:5:5-37:19
 INJECTED from C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml:5:5-37:19
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\quint\.gradle\caches\8.13\transforms\a00e4038f68989b1a436bbbf1601fd1d\transformed\play-services-location-21.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\quint\.gradle\caches\8.13\transforms\a00e4038f68989b1a436bbbf1601fd1d\transformed\play-services-location-21.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\550fc1f070ee615f89b31a5464148eb4\transformed\play-services-tasks-18.1.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\550fc1f070ee615f89b31a5464148eb4\transformed\play-services-tasks-18.1.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:20:5-24:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f3274e4dceb0acc86064caee7574ac85\transformed\ui-tooling\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f3274e4dceb0acc86064caee7574ac85\transformed\ui-tooling\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\a950a618afd56a1cf80bd1b3e510075a\transformed\ui-test-manifest-1.9.0\AndroidManifest.xml:22:5-27:19
@@ -171,6 +190,16 @@ MERGED from [androidx.navigation:navigation-common-android:2.9.5] C:\Users\quint
 MERGED from [androidx.navigation:navigation-common-android:2.9.5] C:\Users\quint\.gradle\caches\8.13\transforms\a6710f50f470e4b93956d4798a7761a8\transformed\navigation-common-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-compose-android:2.9.5] C:\Users\quint\.gradle\caches\8.13\transforms\9449331b4afdc32f6dbae071aa4fe48f\transformed\navigation-compose-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-compose-android:2.9.5] C:\Users\quint\.gradle\caches\8.13\transforms\9449331b4afdc32f6dbae071aa4fe48f\transformed\navigation-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\quint\.gradle\caches\8.13\transforms\a00e4038f68989b1a436bbbf1601fd1d\transformed\play-services-location-21.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\quint\.gradle\caches\8.13\transforms\a00e4038f68989b1a436bbbf1601fd1d\transformed\play-services-location-21.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\550fc1f070ee615f89b31a5464148eb4\transformed\play-services-tasks-18.1.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\550fc1f070ee615f89b31a5464148eb4\transformed\play-services-tasks-18.1.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\759c9bdcdc9e2edcac291ced26dfe3e3\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\759c9bdcdc9e2edcac291ced26dfe3e3\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [io.coil-kt:coil-compose:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\aa4498034ac807e639f10151e5af2015\transformed\coil-compose-2.7.0\AndroidManifest.xml:5:5-44
 MERGED from [io.coil-kt:coil-compose:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\aa4498034ac807e639f10151e5af2015\transformed\coil-compose-2.7.0\AndroidManifest.xml:5:5-44
 MERGED from [io.coil-kt:coil-compose-base:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\b017cce55464298c5b50506b00b538c6\transformed\coil-compose-base-2.7.0\AndroidManifest.xml:5:5-44
@@ -181,12 +210,18 @@ MERGED from [io.coil-kt:coil-base:2.7.0] C:\Users\quint\.gradle\caches\8.13\tran
 MERGED from [io.coil-kt:coil-base:2.7.0] C:\Users\quint\.gradle\caches\8.13\transforms\d66535bbb32965ba27d9dfcb0fd39167\transformed\coil-base-2.7.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\ccf32c9af056b98c64d387303ecf5891\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\quint\.gradle\caches\8.13\transforms\ccf32c9af056b98c64d387303ecf5891\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\40d84a7b4b8ed97ba55bc5f17e8d49ea\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\40d84a7b4b8ed97ba55bc5f17e8d49ea\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\bdab996eb3c312b9b9f4722ac67e4b76\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\bdab996eb3c312b9b9f4722ac67e4b76\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\64ccf74d6568970444cbde29a397c7c5\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\64ccf74d6568970444cbde29a397c7c5\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\b5ce193596f85adda9604a3710d97495\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\b5ce193596f85adda9604a3710d97495\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\f6ba6048dd55211f8e4900ef79d0de2f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\quint\.gradle\caches\8.13\transforms\f6ba6048dd55211f8e4900ef79d0de2f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\9ffe10acba08468003e0aec87278e438\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\quint\.gradle\caches\8.13\transforms\9ffe10acba08468003e0aec87278e438\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\0bcb1f5a294d6a45678a49d139f6bc1b\transformed\material3-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\0bcb1f5a294d6a45678a49d139f6bc1b\transformed\material3-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\556633a420e23e9fc4920688ac139d8e\transformed\ui-tooling-data\AndroidManifest.xml:5:5-44
@@ -227,12 +262,18 @@ MERGED from [androidx.core:core:1.17.0] C:\Users\quint\.gradle\caches\8.13\trans
 MERGED from [androidx.core:core:1.17.0] C:\Users\quint\.gradle\caches\8.13\transforms\a729d0b8908cf6daa89192c37f5c50c4\transformed\core-1.17.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\42d46d2d3769705ecebae8c80858c34e\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\3f3e8e9f5afed1957bb6e37a6c74e886\transformed\lifecycle-livedata-core-ktx-2.9.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\3f3e8e9f5afed1957bb6e37a6c74e886\transformed\lifecycle-livedata-core-ktx-2.9.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\0f47e819bd0720461d1129472bf08b4d\transformed\lifecycle-livedata-2.9.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\0f47e819bd0720461d1129472bf08b4d\transformed\lifecycle-livedata-2.9.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\915be015f78e7a91e475453230a7b957\transformed\lifecycle-viewmodel-ktx-2.9.4\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\915be015f78e7a91e475453230a7b957\transformed\lifecycle-viewmodel-ktx-2.9.4\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\3b7b174c4f351681bfebcbd27ad46256\transformed\lifecycle-livedata-core-2.9.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\3b7b174c4f351681bfebcbd27ad46256\transformed\lifecycle-livedata-core-2.9.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\b031bafca27178804470307c29dc17ee\transformed\lifecycle-viewmodel-savedstate-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\b031bafca27178804470307c29dc17ee\transformed\lifecycle-viewmodel-savedstate-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\0b759d48db337622aa36b1a66f2f899f\transformed\lifecycle-viewmodel-2.9.4\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\0b759d48db337622aa36b1a66f2f899f\transformed\lifecycle-viewmodel-2.9.4\AndroidManifest.xml:4:5-43
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\a1463db81c460b6006f0dde18d9afa05\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] C:\Users\quint\.gradle\caches\8.13\transforms\a1463db81c460b6006f0dde18d9afa05\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\9cdb793964b1dd131df2efd4383c2d37\transformed\runtime\AndroidManifest.xml:5:5-44
@@ -309,6 +350,20 @@ MERGED from [androidx.exifinterface:exifinterface:1.3.7] C:\Users\quint\.gradle\
 		INJECTED from C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\quint\AndroidStudioProjects\proyectoCasas\app\src\main\AndroidManifest.xml
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\eb06e4b0392aa68fac2772c14d1eabcf\transformed\play-services-base-18.3.0\AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\quint\.gradle\caches\8.13\transforms\ad22c431e7e80ebd229e9d50c381c59f\transformed\play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
 activity#androidx.compose.ui.tooling.PreviewActivity
 ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] C:\Users\quint\.gradle\caches\8.13\transforms\f3274e4dceb0acc86064caee7574ac85\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
 	android:exported

@@ -45,11 +45,10 @@ fun defaultDrawerItems(
     onLogin: () -> Unit,
     onRegister: () -> Unit,
     onPerfil: () -> Unit,
-    onFavoritos: () -> Unit // 1. Se añade el nuevo parámetro
+    onFavoritos: () -> Unit
 ): List<DrawerItem> = listOf(
     DrawerItem("Home", Icons.Filled.Home, onHome),
     DrawerItem("Mi Perfil", Icons.Filled.AccountCircle, onPerfil),
-    DrawerItem("Mis Favoritos", Icons.Filled.Favorite, onFavoritos), // 2. Se añade el nuevo item
-    DrawerItem("Login", Icons.Filled.Person, onLogin),
-    DrawerItem("Registro", Icons.Filled.Person, onRegister)
+    DrawerItem("Mis Favoritos", Icons.Filled.Favorite, onFavoritos)
+    // Novedad: Se han eliminado las opciones de Login y Registro del menú.
 )

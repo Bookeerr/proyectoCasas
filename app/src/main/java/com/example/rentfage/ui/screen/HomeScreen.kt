@@ -1,20 +1,21 @@
 package com.example.rentfage.ui.screen
 
-import com.example.rentfage.data.local.storage.UserPreferences
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.PersonOff
-import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.compose.foundation.layout.Row
-
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.IntentSender
+import android.os.Looper
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,6 +26,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PersonOff
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -34,17 +38,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.rentfage.data.local.Casa
+import com.example.rentfage.data.local.storage.UserPreferences
 import com.example.rentfage.ui.viewmodel.CasasViewModel
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.Priority
 
-// ahora recibe el ViewModel como pará
+@SuppressLint("MissingPermission") // Suprimimos el aviso de permiso, ya que lo estamos comprobando explícitamente.
 @Composable
 fun HomeScreenVm(
     vm: CasasViewModel,
@@ -56,6 +71,78 @@ fun HomeScreenVm(
     val userPrefrs = remember { UserPreferences(context) }
     val isLoggedIn by userPrefrs.isLoggedIn.collectAsStateWithLifecycle(initialValue = false)
 
+    val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
+    val locationRequest = remember {
+        LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
+            .setMinUpdateIntervalMillis(5000)
+            .build()
+    }
+
+    val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            locationResult.locations.lastOrNull()?.let { location ->
+                val lat = location.latitude
+                val lon = location.longitude
+                Toast.makeText(context, "Ubicación actualizada: Lat: $lat, Lon: $lon", Toast.LENGTH_SHORT).show()
+                fusedLocationClient.removeLocationUpdates(this)
+            }
+        }
+    }
+
+    fun startLocationUpdates() {
+        fusedLocationClient.requestLocationUpdates(
+            locationRequest,
+            locationCallback,
+            Looper.getMainLooper()
+        )
+    }
+
+    val settingsResolutionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartIntentSenderForResult(),
+        onResult = { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                startLocationUpdates()
+            } else {
+                Toast.makeText(context, "La ubicación debe estar activada para buscar.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    )
+
+    fun checkSettingsAndStartLocationUpdates() {
+        val settingsRequest = LocationSettingsRequest.Builder()
+            .addLocationRequest(locationRequest)
+            .build()
+        val settingsClient = LocationServices.getSettingsClient(context)
+
+        settingsClient.checkLocationSettings(settingsRequest)
+            .addOnSuccessListener { 
+                startLocationUpdates()
+            }
+            .addOnFailureListener { exception -> 
+                if (exception is ResolvableApiException) {
+                    try {
+                        val intentSenderRequest = IntentSenderRequest.Builder(exception.resolution).build()
+                        settingsResolutionLauncher.launch(intentSenderRequest)
+                    } catch (e: IntentSender.SendIntentException) {
+                        Toast.makeText(context, "No se puede abrir el diálogo de ubicación", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(context, "No se pueden verificar los ajustes de ubicación.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    val requestPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission(),
+        onResult = { isGranted: Boolean ->
+            if (isGranted) {
+                checkSettingsAndStartLocationUpdates()
+            } else {
+                Toast.makeText(context, "Permiso denegado. No se puede buscar por ubicación.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    )
+
     val state by vm.uiState.collectAsState()
 
     HomeScreen(
@@ -64,7 +151,8 @@ fun HomeScreenVm(
         onHouseClick = onHouseClick,
         onGoLogin = onGoLogin,
         onGoRegister = onGoRegister,
-        onToggleFavorite = { casaId -> vm.toggleFavorite(casaId) }
+        onToggleFavorite = { casaId -> vm.toggleFavorite(casaId) },
+        onRequestLocation = { requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION) }
     )
 }
 
@@ -75,7 +163,8 @@ private fun HomeScreen(
     onHouseClick: (Int) -> Unit,
     onGoLogin: () -> Unit,
     onGoRegister: () -> Unit,
-    onToggleFavorite: (Int) -> Unit
+    onToggleFavorite: (Int) -> Unit,
+    onRequestLocation: () -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -97,6 +186,15 @@ private fun HomeScreen(
                     contentDescription = if (isLoggedIn) "Usuario Logueado" else "Usuario no Logueado",
                     tint = if(isLoggedIn) MaterialTheme.colorScheme.primary else Color.Gray
                 )
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+            // Novedad: Cambiamos OutlinedButton por Button para que tenga fondo rojo.
+            Button(
+                onClick = onRequestLocation, 
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Buscar Cerca de Mí")
             }
         }
         items(casas) { casa ->
@@ -123,28 +221,18 @@ private fun HouseCard(
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
-            // Contenedor para la imagen y el icono de favorito
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
             ) {
-                // Image(fotos)
                 Image(
-                    // 'painterResource' busca una imagen en la carpeta 'drawable'.
-                    // 'id = casa.imageResId' le dice que el ID de la imagen a buscar está guardado en la propiedad 'imageResId' de la casa.
                     painter = painterResource(id = casa.imageResId),
-
-                    // Texto de ayuda para accesibilidad.
                     contentDescription = "Imagen de la casa",
-
-                    //  Le decimos como debe ponerse la imagen en el espacio.
-                    // 'ContentScale.Crop' hace que la imagen llene el espacio
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
 
-                // Boton de favorito
                 IconButton(
                     onClick = onToggleFavorite,
                     modifier = Modifier.align(Alignment.TopEnd)
@@ -157,7 +245,6 @@ private fun HouseCard(
                 }
             }
 
-            // detalles de la casa
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
                     text = casa.price,
