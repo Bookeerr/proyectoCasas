@@ -1,7 +1,9 @@
 package com.example.rentfage.ui.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.rentfage.data.local.storage.UserPreferences
 import com.example.rentfage.domain.validation.validateConfirm
 import com.example.rentfage.domain.validation.validateEmail
 import com.example.rentfage.domain.validation.validateNameLettersOnly
@@ -22,7 +24,9 @@ data class LoginUiState(
     val isSubmitting: Boolean = false,
     val canSubmit: Boolean = false,
     val success: Boolean = false,
-    val errorMsg: String? = null
+    val errorMsg: String? = null,
+    // Guardaremos el rol del usuario que ha iniciado sesión.
+    val loggedInUserRole: String? = null
 )
 
 data class RegisterUiState(
@@ -42,25 +46,28 @@ data class RegisterUiState(
     val errorMsg: String? = null
 )
 
-//  COLECCIÓN EN MEMORIA
+// cada usuario tiene un "rol".
 internal data class DemoUser(
     val name: String,
     val email: String,
     val phone: String,
-    val pass: String
+    val pass: String,
+    val role: String
 )
 
-class AuthViewModel : ViewModel() {
+// ViewModel pueda acceder al contexto para usar UserPreferences.
+class AuthViewModel(application: Application) : AndroidViewModel(application) {
+
+    // Creamos una instancia de UserPreferences para usarla aquí dentro.
+    private val userPreferences = UserPreferences(application)
 
     companion object {
-        // La lista de usuarios ahora es internal para ser visible desde las demas
-        internal val USERS = mutableListOf( // se hizo publica
-            DemoUser(name = "demo", email = "demo@duoc.cl", phone = "987654321", pass = "demo"),
-            // Se añade el nuevo usuario de prueba
-            DemoUser(name = "Prueba", email = "prueba@duocuc.cl", phone = "123456789", pass = "Prueba123!")
+        // Añadimos un usuario "Admin" y asignamos roles a todos.
+        internal val USERS = mutableListOf(
+            DemoUser(name = "Admin", email = "admin@rent.cl", phone = "111222333", pass = "admin123", role = "Admin"),
+            DemoUser(name = "Prueba", email = "prueba@duocuc.cl", phone = "123456789", pass = "Prueba123!", role = "User")
         )
-        // Variable para guardar el email del usuario que ha iniciado sesión
-        var activeUserEmail: String? = null // avisar quien inicio sesion
+        var activeUserEmail: String? = null
     }
 
     private val _login = MutableStateFlow(LoginUiState())
@@ -94,30 +101,37 @@ class AuthViewModel : ViewModel() {
             delay(500)
 
             val user = USERS.firstOrNull { it.email.equals(s.email, ignoreCase = true) }
-            // Se corrige la comprobación para que ignore mayúsculas/minúsculas en la contraseña
-            val ok = user != null && user.pass.equals(s.pass, ignoreCase = true)
+            val ok = user != null && user.pass.equals(s.pass)
 
-            if (ok) {
-                // Si el login es correcto, guardamos el email del usuario
-                activeUserEmail = user?.email
+            if (ok && user != null) {
+                // Si el login es correcto, guardamos su rol y el estado de la sesión.
+                activeUserEmail = user.email
+                userPreferences.setLoggedIn(true)
+                userPreferences.saveUserRole(user.role)
             }
 
             _login.update {
                 it.copy(
                     isSubmitting = false,
                     success = ok,
-                    errorMsg = if (!ok) "Credenciales inválidas" else null
+                    errorMsg = if (!ok) "Credenciales inválidas" else null,
+                    loggedInUserRole = if(ok) user?.role else null // Guardamos el rol en el estado.
                 )
             }
         }
     }
 
     fun clearLoginResult() {
-        _login.update { it.copy(success = false, errorMsg = null) }
+        _login.update { it.copy(success = false, errorMsg = null, loggedInUserRole = null) }
     }
 
     fun logout() {
-        activeUserEmail = null // lo usaremos en el boton de cerrar sesion, es para borrar lo escrito
+        viewModelScope.launch {
+            // Al cerrar sesión, ahora también limpiamos la memoria de UserPreferences.
+            userPreferences.setLoggedIn(false)
+            userPreferences.clearUserRole()
+            activeUserEmail = null
+        }
     }
 
     // --- REGISTRO ---
@@ -176,12 +190,14 @@ class AuthViewModel : ViewModel() {
                 return@launch
             }
 
+            // cuando se registra un nuevo usuario, se le asigna el rol "User" por defecto.
             USERS.add(
                 DemoUser(
                     name = s.name.trim(),
                     email = s.email.trim(),
                     phone = s.phone.trim(),
-                    pass = s.pass
+                    pass = s.pass,
+                    role = "User" 
                 )
             )
 

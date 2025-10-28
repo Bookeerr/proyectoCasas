@@ -6,9 +6,12 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -16,9 +19,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
+import com.example.rentfage.data.local.storage.UserPreferences
 import com.example.rentfage.ui.components.AppDrawer
 import com.example.rentfage.ui.components.AppTopBar
 import com.example.rentfage.ui.components.defaultDrawerItems
+import com.example.rentfage.ui.screen.AdminDashboardScreen
 import com.example.rentfage.ui.screen.DetalleCasaScreen
 import com.example.rentfage.ui.screen.FavoritosScreenVm
 import com.example.rentfage.ui.screen.HomeScreenVm
@@ -40,6 +45,11 @@ fun AppNavGraph(navController: NavHostController) {
 
     val casasViewModel: CasasViewModel = viewModel()
 
+    // Leemos el rol del usuario desde el DataStore.
+    val context = LocalContext.current
+    val userPreferences = remember { UserPreferences(context) }
+    val userRole by userPreferences.userRole.collectAsState(initial = null)
+
     val showTopBar = currentRoute != "login" && currentRoute != "register"
 
     val goHome: () -> Unit = { navController.navigate("home") }
@@ -47,8 +57,9 @@ fun AppNavGraph(navController: NavHostController) {
     val goRegister: () -> Unit = { navController.navigate("register") }
     val goPerfil: () -> Unit = { navController.navigate("perfil") }
     val goFavoritos: () -> Unit = { navController.navigate("favoritos") }
-    // Novedad: Creamos la acción para navegar a la nueva pantalla.
     val goNosotros: () -> Unit = { navController.navigate("nosotros") }
+    // Creamos la accion para ir al panel de administrador.
+    val goAdminDashboard: () -> Unit = { navController.navigate("admin_dashboard") }
     val onHouseClick: (Int) -> Unit = { casaId ->
         navController.navigate("detalle_casa/$casaId")
     }
@@ -61,11 +72,13 @@ fun AppNavGraph(navController: NavHostController) {
                 currentRoute = currentRoute,
                 items = defaultDrawerItems(
                     onHome = { scope.launch { drawerState.close() }; goHome() },
-                    onLogin = { scope.launch { drawerState.close() }; goLogin() },
-                    onRegister = { scope.launch { drawerState.close() }; goRegister() },
                     onPerfil = { scope.launch { drawerState.close() }; goPerfil() },
                     onFavoritos = { scope.launch { drawerState.close() }; goFavoritos() },
-                    onNosotros = { scope.launch { drawerState.close() }; goNosotros() } // Novedad: Pasamos la nueva acción.
+                    onNosotros = { scope.launch { drawerState.close() }; goNosotros() },
+                    // Novedad: Pasamos la nueva acción para el panel.
+                    onAdmin = { scope.launch { drawerState.close() }; goAdminDashboard() },
+                    // Le pasamos el rol del usuario al creador de items.
+                    userRole = userRole
                 )
             )
         }
@@ -86,8 +99,6 @@ fun AppNavGraph(navController: NavHostController) {
                 composable("home") {
                     HomeScreenVm(
                         vm = casasViewModel,
-                        onGoLogin = goLogin,
-                        onGoRegister = goRegister,
                         onHouseClick = onHouseClick
                     )
                 }
@@ -119,10 +130,13 @@ fun AppNavGraph(navController: NavHostController) {
                     val casaId = backStackEntry.arguments?.getInt("casaId") ?: 0
                     DetalleCasaScreen(casaId = casaId, onGoHome = goHome)
                 }
-
-                // Novedad: Añadimos el nuevo destino al NavHost.
                 composable("nosotros") {
                     NosotrosScreen()
+                }
+
+                // Añadimos el nuevo destino para el panel de administrador.
+                composable("admin_dashboard") {
+                    AdminDashboardScreen()
                 }
             }
         }

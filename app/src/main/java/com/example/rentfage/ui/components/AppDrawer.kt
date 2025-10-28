@@ -2,10 +2,10 @@ package com.example.rentfage.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.AdminPanelSettings
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.NavigationDrawerItem
@@ -43,14 +43,27 @@ fun AppDrawer(
 @Composable
 fun defaultDrawerItems(
     onHome: () -> Unit,
-    onLogin: () -> Unit,
-    onRegister: () -> Unit,
     onPerfil: () -> Unit,
     onFavoritos: () -> Unit,
-    onNosotros: () -> Unit // Novedad: Recibimos la acción para la nueva pantalla.
-): List<DrawerItem> = listOf(
-    DrawerItem("Home", Icons.Filled.Home, onHome),
-    DrawerItem("Mi Perfil", Icons.Filled.AccountCircle, onPerfil),
-    DrawerItem("Mis Favoritos", Icons.Filled.Favorite, onFavoritos),
-    DrawerItem("Nosotros", Icons.Filled.Info, onNosotros) // Novedad: Añadimos el nuevo elemento a la lista.
-)
+    onNosotros: () -> Unit,
+    onAdmin: () -> Unit,      // Novedad: Recibimos la acción para el panel.
+    userRole: String?        // Novedad: Recibimos el rol del usuario.
+): List<DrawerItem> {
+    // Creamos la lista base de items que todos los usuarios ven.
+    val baseItems = mutableListOf(
+        DrawerItem("Home", Icons.Filled.Home, onHome),
+        DrawerItem("Mi Perfil", Icons.Filled.AccountCircle, onPerfil),
+        DrawerItem("Mis Favoritos", Icons.Filled.Favorite, onFavoritos),
+        DrawerItem("Nosotros", Icons.Filled.Info, onNosotros)
+    )
+
+    // Si el rol del usuario es "Admin", añadimos el botón secreto a la lista.
+    if (userRole == "Admin") {
+        baseItems.add(
+            DrawerItem("Panel de Administrador", Icons.Filled.AdminPanelSettings, onAdmin)
+        )
+    }
+
+    // Devolvemos la lista final.
+    return baseItems
+}
