@@ -59,7 +59,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.Priority
 
-@SuppressLint("MissingPermission") // Suprimimos el aviso de permiso, ya que lo estamos comprobando explícitamente.
+@SuppressLint("MissingPermission") 
 @Composable
 fun HomeScreenVm(
     vm: CasasViewModel,
@@ -81,9 +81,8 @@ fun HomeScreenVm(
     val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             locationResult.locations.lastOrNull()?.let { location ->
-                val lat = location.latitude
-                val lon = location.longitude
-                Toast.makeText(context, "Ubicación actualizada: Lat: $lat, Lon: $lon", Toast.LENGTH_SHORT).show()
+                // Ahora solo mostramos un mensaje de éxito amigable.
+                Toast.makeText(context, "¡Ubicación encontrada!", Toast.LENGTH_SHORT).show()
                 fusedLocationClient.removeLocationUpdates(this)
             }
         }
@@ -133,9 +132,9 @@ fun HomeScreenVm(
     }
 
     val requestPermissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.RequestPermission(),
-        onResult = { isGranted: Boolean ->
-            if (isGranted) {
+        contract = ActivityResultContracts.RequestMultiplePermissions(),
+        onResult = { permissions ->
+            if (permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true || permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true) {
                 checkSettingsAndStartLocationUpdates()
             } else {
                 Toast.makeText(context, "Permiso denegado. No se puede buscar por ubicación.", Toast.LENGTH_SHORT).show()
@@ -152,7 +151,12 @@ fun HomeScreenVm(
         onGoLogin = onGoLogin,
         onGoRegister = onGoRegister,
         onToggleFavorite = { casaId -> vm.toggleFavorite(casaId) },
-        onRequestLocation = { requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION) }
+        onRequestLocation = { 
+            requestPermissionLauncher.launch(arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ))
+        }
     )
 }
 
@@ -189,7 +193,6 @@ private fun HomeScreen(
             }
 
             Spacer(modifier = Modifier.height(8.dp))
-            // Novedad: Cambiamos OutlinedButton por Button para que tenga fondo rojo.
             Button(
                 onClick = onRequestLocation, 
                 modifier = Modifier.fillMaxWidth()
